@@ -1,0 +1,76 @@
+#+title: Install Arch
+#+description: outlines to install arch linux dual boot.
+
+* Requirement
+Arch Bootable : Create a bootable arch linux USB and boot into it
+
+Connecting to WiFi (optional)
+
+#+begin_src sh
+
+$ iwctl
+[iwctl] station wlan0 scan
+[iwctl] station wlan0 connect <ssid>
+#+end_src
+
+*Mount the existing filesystem
+
+** Check the block devices
+#+begin_src sh
+$ lsblk
+#+end_src
+
+
+** Mount partitions
+#+begin_src sh
+$ swapon <swap partition>
+$ swapon -a ; swapon -s
+$ mount <root partition> /mnt
+$ mount <boot partition> /mnt/boot
+$ mount <home partition> /mnt/home // optional
+#+end_src
+
+
+** Login as root
+#+begin_src sh
+$
+$  arch-chroot /mnt /bin/bash
+$
+#+end_src
+
+* Reinstall EFI Bootloader
+
+* Bootloader
+
+install grub and efibootmgr
+#+begin_src sh
+$ sudo pacman -S grub efibootmgr
+#+end_src
+
+setup grub on efi partition
+#+begin_src sh
+$ grub-install --efi-directory=/boot/efi 
+#+end_src
+
+add kernal parameters at /etc/default/grub
+#+begin_src sh
+$ root=<root partition> 
+#+end_src
+
+* Grub
+
+create grub config
+#+begin_src sh
+$ grub-mkconfig -o /boot/grub/grub.cfg
+$ grub-mkconfig -o /boot/efi/EFI/arch/grub.cfg
+#+end_src
+
+
+* reboot
+#+begin_src sh
+$ exit
+$ umount -R /mnt
+$ reboot now
+#+end_src
+
+
