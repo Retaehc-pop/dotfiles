@@ -64,3 +64,7 @@ $ mount /dev/nvme0n1p1 /mnt/boot/efi
 #+begin_src sh
 $ arch-chroot /mnt /bin/bash
 #+end_src
+
+
+change time zone 
+timedatectl set-timezone "$(curl --fail https://ipapi.co/timezone)"

@@ -1,3 +1,7 @@
 *~
 .emacs.d/session.*
 .emacs.d/#*#
+.config/nvim/lazy-lock.json
+.config/nvim/init.lua
+
+
