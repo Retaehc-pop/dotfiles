@@ -1,0 +1,5 @@
+{
+  "label": "lock",
+  "action": "hyprlock",
+  "keybind": "l"
+}

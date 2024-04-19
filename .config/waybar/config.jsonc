@@ -1,0 +1,114 @@
+{
+    "layer": "top",
+    "position": "top",
+    //"output": ["DP-4"],
+    "margin-left": 10,
+    "margin-right": 10,
+    "margin-top": 5,
+    "spacing": 1,
+
+    "modules-left": ["custom/powermenu", "hyprland/workspaces"],
+    "modules-center": ["clock"],
+    "modules-right": ["cpu", "custom/weather", "battery", "pulseaudio", "network", "tray"],
+
+    "hyprland/workspaces": {
+        "on-click": "activate",
+        "persistent-workspaces": {
+            "*": 2
+         },
+        "format": "{icon}",
+        "format-icons": {
+            "urgent": "",
+            "active": "",
+            "default": ""
+         }
+    },
+    "battery": {
+        "format": "{icon}",
+        "format-icons": [" ", " ", " ", " ", " "],
+        "format-time": "{H}h{M}m",
+        "format-charging": "󰂈 ",
+        "format-full": "󰂄",
+        "interval": 30,
+        "states": {
+            "warning": 25,
+            "critical": 10
+        },
+        "format-alt":"{capacity}%"
+    },
+
+    "custom/weather": {
+        "format": "{}",
+        "interval": 900,
+        "return-type": "json",
+        "on-click":"xdg-open https://wttr.in/",
+        "exec": "python ~/.config/waybar/modules/weather.py",
+        "exec-if": "ping wttr.in -c1"
+    },   
+    "tray": {
+        "icon-size": 18,
+        "spacing": 5,
+        "show-passive-items": true
+    },
+    "clock": {
+        "interval": 1,
+        "format": "  {:%b %d  %H:%M:%S}", // %b %d %Y  --Date formatting
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "format-alt": "{:%Y-%m-%d}"
+    },
+   "temperature": {
+        "critical-threshold": 80,
+        "interval": 2,
+        "format": " {temperatureC}°C",
+        "format-icons": ["", "", ""]
+    },
+    "cpu": {
+        "interval": 2,
+        "format": "  {usage}%",
+        "tooltip": false,
+        "on-click":"kitty -e btop"
+    },
+    "memory": {
+        "interval": 2,
+        "format": "  {}%"
+    },
+   "disk": {
+        "interval": 15,
+        "format": "󰋊 {percentage_used}%"
+    },
+    "network": {
+        "format-wifi": " :{ipaddr}",
+        "format-ethernet": "󰈀 {ipaddr}",
+        "tooltip-format-wifi": "{essid} ({signalStrength}%)  ",
+        "tooltip-format": "{ifname} via {gwaddr} 󰈀 ",
+        "format-linked": "{ifname} (No IP)  ",
+        "format-disconnected": "Disconnected ⚠"
+    },
+    "pulseaudio": {
+        "format": "{icon} {volume}%",
+        "format-bluetooth": "{icon} {volume}% 󰂯",
+        "format-bluetooth-muted": "󰖁 {icon} 󰂯",
+        "format-muted": "󰖁 {format_source}",
+        "format-source": "{volume}% ",
+        "format-source-muted": "",
+        "format-icons": {
+            "headphone": "󰋋",
+            "hands-free": "󱡒",
+            "headset": "󰋎",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "", ""]
+        },
+        "on-click": "pavucontrol"
+    },
+    "custom/powermenu": {
+      "format": "{icon}",
+      "format-icons": "󰣇",
+      "exec-on-event": "true",
+      "on-click": "wlogout"
+    },
+    "custom/sepp": {
+        "format": "|"
+    }
+}
