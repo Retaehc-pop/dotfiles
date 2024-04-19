@@ -109,10 +109,10 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
-precmd() {
-  if [[ -n $TMUX && -n $CONDA_DEFAULT_ENV ]]; then
-    tmux setenv -g TMUX_CONDA_ENV "$CONDA_DEFAULT_ENV"
-  else
-    tmux setenv -gu TMUX_CONDA_ENV
-  fi
-}
+# precmd() {
+#   if [[ -n $TMUX && -n $CONDA_DEFAULT_ENV ]]; then
+#     tmux setenv -g TMUX_CONDA_ENV "$CONDA_DEFAULT_ENV"
+#   else
+#     tmux setenv -gu TMUX_CONDA_ENV
+#   fi
+# }
