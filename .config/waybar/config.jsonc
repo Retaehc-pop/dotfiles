@@ -2,12 +2,14 @@
     "layer": "top",
     "position": "top",
     //"output": ["DP-4"],
-    "margin-left": 10,
-    "margin-right": 10,
+    "mod":"dock",
+    "margin-left": 30,
+    "margin-right": 30,
     "margin-top": 5,
     "spacing": 1,
+    "gtk-layer-shell":true,
 
-    "modules-left": ["custom/powermenu", "hyprland/workspaces"],
+    "modules-left": ["custom/power","hyprland/window", "hyprland/workspaces"],
     "modules-center": ["clock"],
     "modules-right": ["cpu", "custom/weather", "battery", "pulseaudio", "network", "tray"],
 
@@ -25,16 +27,16 @@
     },
     "battery": {
         "format": "{icon}",
-        "format-icons": [" ", " ", " ", " ", " "],
-        "format-time": "{H}h{M}m",
+        "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
         "format-charging": "󰂈 ",
-        "format-full": "󰂄",
-        "interval": 30,
+        "format-full": "󰂄 ",
+        "format-plugged": "󰂄 ",
         "states": {
+            "good": 95,
             "warning": 25,
             "critical": 10
         },
-        "format-alt":"{capacity}%"
+        "format-alt":"{icon} {capacity}%"
     },
 
     "custom/weather": {
@@ -46,9 +48,8 @@
         "exec-if": "ping wttr.in -c1"
     },   
     "tray": {
-        "icon-size": 18,
-        "spacing": 5,
-        "show-passive-items": true
+        "icon-size": 20,
+        "spacing": 9
     },
     "clock": {
         "interval": 1,
@@ -64,7 +65,7 @@
     },
     "cpu": {
         "interval": 2,
-        "format": "  {usage}%",
+        "format": "  {usage}% ",
         "tooltip": false,
         "on-click":"kitty -e btop"
     },
@@ -82,15 +83,17 @@
         "tooltip-format-wifi": "{essid} ({signalStrength}%)  ",
         "tooltip-format": "{ifname} via {gwaddr} 󰈀 ",
         "format-linked": "{ifname} (No IP)  ",
-        "format-disconnected": "Disconnected ⚠"
+        "format-disconnected": "Disconnected ⚠",
+        "on-click":"~/.config/eww/scripts/toggle_control_center.sh"
     },
     "pulseaudio": {
-        "format": "{icon} {volume}%",
+        "format": "{icon} {volume}",
         "format-bluetooth": "{icon} {volume}% 󰂯",
         "format-bluetooth-muted": "󰖁 {icon} 󰂯",
         "format-muted": "󰖁 {format_source}",
         "format-source": "{volume}% ",
         "format-source-muted": "",
+        "tooltip-format": "{icon} {desc} | {volume}%",
         "format-icons": {
             "headphone": "󰋋",
             "hands-free": "󱡒",
@@ -100,13 +103,26 @@
             "car": "",
             "default": ["", "", ""]
         },
-        "on-click": "pavucontrol"
+        "on-click": "pavucontrol -t 3"
     },
-    "custom/powermenu": {
-      "format": "{icon}",
-      "format-icons": "󰣇",
-      "exec-on-event": "true",
-      "on-click": "wlogout"
+    "custom/power":{
+      "format": "󰣇 ",
+      "on-click": "~/.config/hypr/script/wlogout.sh"
+    },
+    "hyprland/window": {
+      "format": "{}",
+      "seperate-outputs": true,
+      "rewrite": {
+            "papop@papoparch:(.*)": "$1  ",
+            "nvim(.*)":"nvim  ",
+            "(.*)Mozilla Firefox": "Firefox 󰈹 ",
+            "(.*) - Visual Studio Code": "$1 󰨞 ",
+            "(.*)Visual Studio Code": "Code 󰨞 ",
+            "(.*) thunar": "thunar 󰉋 ",
+            "(.*)Spotify": "Spotify 󰓇",
+            "(.*)Steam": "Steam 󰓓",
+            "on-click": "~/.config/hypr/scripts/Rofi-launcher.sh"
+      }
     },
     "custom/sepp": {
         "format": "|"

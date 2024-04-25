@@ -1,146 +1,148 @@
 @import "macchiato.css";
 
 * {
-  min-height: 0;
-  font-family: "JetBrainsMono Nerd Font", "Hack Nerd Font", FontAwesome, Roboto,
-    Helvetica, Arial, sans-serif;
-  font-size: 13px;
+    border: none;
+    border-radius: 0px;
+    font-family: "JetBrainsMono Nerd Font";
+    font-weight: bold;
+    font-size: 16px;
+    min-height: 10px;
+    transition: all 0.3s cubic-bezier(.55,-0.68,.48,1.682);
+
 }
 
 window#waybar {
-  color: @text;
-  background: @base;
-  transition-property: background-color;
-  transition-duration: 0.5s;
-  border-radius: 90px;
+  background-color: rgba(0, 0, 0, .0);
 }
 
-window#waybar.empty {
-  opacity: 0.3;
+#battery,
+#temperature,
+#cpu,
+#custom-weather,
+#clock,
+#workspaces,
+#custom-rofi,
+#tray,
+#pulseaudio,
+#backlight,
+#network,
+#custom-right,
+#custom-left {
+   color: @text;
+   margin: 4px;
+   opacity: 1;
+   border: 0px solid #181825;
+  padding-right:20px;
 }
 
-.modules-left {
-  border: none;
-  padding: 5px 5px;
+
+#cpu{
+  color: @yellow;
 }
 
-.modules-right {
-  border: none;
-  padding: 5px 5px;
-}
 
-.modules-center {
-  border: none;
-  padding: 5px 5px;
+tooltip {
+    background: @base;
+    color: @text;
+    border-radius: 22px;
 }
-
-button {
-  border: none;
-  border-radius: 0;
-}
-
-button:hover {
-  background: @base;
-  border-radius: 90px;
-}
-
-#custom-powermenu {
-  color: @blue;
-  font-weight: 600;
-  margin-right: 10px;
-  padding-left: 15px;
-  padding-right: 19px;
-  border-radius: 90px;
-  background: @crust
-}
-
-#workspaces {
-  font-weight: 600;
-  margin-right: 10px;
-  padding: 5px 10px;
-  border-radius: 90px;
-  background: @crust
-}
-
 
 #workspaces button {
-  color: @text;
-  font-weight: 600;
-  margin: 0px;
-  padding: 0px 5px;
-}
-
-#workspaces button.urgent {
-  color: @red;
-}
-#workspaces button.empty {
-  color: @surface2;
+    box-shadow: none;
+    text-shadow: none;
+    padding: 0px;
+    border-radius: 9px;
+    margin-top: 3px;
+    margin-bottom: 3px;
+    padding-left: 3px;
+    padding-right: 3px;
+    color: @rosewater;
+    animation: gradient_f 20s ease-in infinite;
+    transition: all 0.5s cubic-bezier(.55,-0.68,.48,1.682);
 }
 
 #workspaces button.active {
-  color: @blue;
+    background: @peach;
+    color: @peach;
+    margin-left: 3px;
+    padding-left: 12px;
+    padding-right: 12px;
+    margin-right: 3px;
+    animation: gradient_f 20s ease-in infinite;
+    transition: all 0.3s cubic-bezier(.55,-0.68,.48,1.682);
 }
 
-#workspaces button.focused {
-  color: @green;
+#workspaces button:hover {
+    background: #b16286;
+    border: none;
 }
 
-#cpu,
-#custom-weather,
-#battery,
-#temperature,
-#memory,
-#disk {
-  color: @blue;
-  font-weight: 600;
-  margin-right: 10px;
-  padding: 6px 15px;
-  border-radius: 90px;
-  background: @crust
+#workspaces {
+    padding: 0px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+#custom-rofi {
+    color: #38ef7d; 
+    padding-left: 0px;
+    padding-right: 10px;
+}
+
+#custom-weather{
+  color:@blue;
+}
+
+#temperature {
+    color: #eebd35;
+    padding-left: 0px;
+    padding-right: 19px;
+}
+
+#temperature.critical {
+    color: #ff0000;
+    padding-left: 0px;
+    padding-right: 19px;
+}
+
+#backlight {
+    color: #FF8B49;
+    padding-left: 0px;
+    padding-right: 19px;
 }
 
 #pulseaudio {
-  color: @crust;
-  font-weight: 600;
-  margin-right: 10px;
-  padding: 6px 15px;
-  border-radius: 90px;
-  background: @blue
+    color: #EA879D;
+    padding-left: 0px;
+    padding-right: 19px;
 }
 
-#network {
-  color: @crust;
-  font-weight: 600;
-  margin-right: 10px;
-  padding: 6px 15px;
-  border-radius: 90px;
-  background: @green
+#battery {
+    color: @green;
+    padding-left: 0px;
+    padding-right: 0px;
 }
 
 #tray {
-  color: @text;
-  font-weight: 600;
-  padding: 6px 15px;
-  border-radius: 90px;
-  background: @crust
+  padding-left: 0px;
+  padding-right: 19px;
+}
+
+#network {
+  color: @green;
+   padding-left: 0px;
+   padding-right: 19px;
+}
+#network.disconnect{
+  color: @red;
+  padding-left: 0px;
+  padding-right: 19px;
 }
 
 #clock {
-  color: @blue;
-  font-weight: 600;
-  margin-right: 10px;
-  padding: 6px 15px;
-  border-radius: 90px;
-  background: @crust
+   color: @text;
+   padding-left: 0px;
+   padding-right: 0px;
 }
 
-#custom-sepp {
-    color: @surface2;
-    font-size: 20px;
-        padding-left: 4px;
-        padding-right: 10px;
-}
 
-#network.disconnected {
-  background-color: @red;
-}

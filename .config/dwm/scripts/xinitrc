@@ -1,2 +1,0 @@
-#!/bin/sh
-exec ~/.config/dwm/scripts/./autostart
