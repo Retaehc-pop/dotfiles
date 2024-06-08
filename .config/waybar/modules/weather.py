@@ -2,6 +2,7 @@
 
 import json
 import requests
+import argparse
 from datetime import datetime
 
 WWO_CODE = {
@@ -70,7 +71,7 @@ WEATHER_SYMBOL = {
     "LightSnow": "",
     "LightSnowShowers": "",
     "PartlyCloudy": "󰖕",
-    "Sunny": "",
+    "Sunny": "",
     "ThunderyHeavyRain": "",
     "ThunderyShowers": "⛈",
     "ThunderySnowShowers": "",
@@ -122,60 +123,101 @@ MOON_PHASE_FULL = (
 WIND_SPEED = ("", "", "", "", "", "", "", "", "", "", "", "", "󰢘")
 
 
-def get_moon(weather) -> str:
-    # moon_phases = []
-    # for i in weather["weather"]:
-    #     moon_phases.append(i["astronomy"][0]["moon_phase"])
-    moon_phase = MOON_PHASE[weather["weather"][0]["astronomy"][0]["moon_phase"]]
-    return f"{moon_phase} {weather['weather'][0]['astronomy'][0]['moon_phase']}"
+class Weather:
+    def __init__(self, city: str = ""):
+        self.city = city
+        self.raw_data = self.request_value()
+
+    def request_value(self):
+        value = requests.get(f"https://wttr.in/{self.city}?format=j1").json()
+        return value
+
+    def get(self, mode):
+        match mode:
+            case "weather_time":
+                return self.get_weather_time(self.raw_data)
+            case "weather":
+                return self.get_weather(self.raw_data)
+            case "temp" | "temperature":
+                return self.get_temperature(self.raw_data)
+            case "rain" | "precipitation":
+                return self.get_precipitation(self.raw_data)
+            case "moon" | "moon_phase":
+                return self.get_moon_phase(self.raw_data)
+            case "wind":
+                return self.get_wind(self.raw_data)
+            case "location" | "city":
+                return self.city
+            case "sun" | "sunrise":
+                return self.get_sun(self.raw_data)
+            case _:
+                return "󰼯  invalid mode"
+
+    def get_moon_phase(self, raw_data):
+        return MOON_PHASE[raw_data["weather"][0]["astronomy"][0]["moon_phase"]]
+
+    def get_temperature(self, raw_data):
+        return f"{raw_data['current_condition'][0]['temp_C']}°C"
+
+    def get_weather_time(self, raw_data):
+        weather = self.get_weather(raw_data)
+        time = self.get_sun(raw_data)
+        match time:
+            case "day":
+                return weather
+            case "night":
+                if weather == "":
+                    weather = ""
+                return weather
+
+    def get_wind(self, raw_data) -> str:
+        wind = int(raw_data["current_condition"][0]["windspeedKmph"])
+        wind_speed = [1, 5, 11, 19, 28, 38, 49, 61, 74, 88, 102, 117]
+        wind_res = ""
+        for i, w in enumerate(wind_speed):
+            if wind < w:
+                wind_res = WIND_SPEED[i]
+        if wind_res == "":
+            wind_res = WIND_SPEED[-1]
+        return f"{wind_res} {wind}Kph"
+
+    def get_weather(self, raw_data):
+        if raw_data["current_condition"][0]["weatherCode"] in WWO_CODE:
+            return WEATHER_SYMBOL[
+                WWO_CODE[raw_data["current_condition"][0]["weatherCode"]]
+            ]
+        else:
+            return "󰼯 "
+
+    def get_precipitation(self, raw_data) -> str:
+        precipitation = []
+        for h in raw_data["weather"][0]["hourly"]:
+            precipitation.append(int(h["chanceofrain"]))
+        avg = sum(precipitation[:3]) // len(precipitation[:3])
+        return f"{avg}%"
+
+    def get_sun(self, raw_data) -> str:
+        sunrise = raw_data["weather"][0]["astronomy"][0]["sunrise"]
+        sunrise = datetime.strptime(sunrise, "%I:%M %p")
+        sunset = raw_data["weather"][0]["astronomy"][0]["sunset"]
+        sunset = datetime.strptime(sunset, "%I:%M %p")
+
+        if sunrise <= datetime.now() <= sunset:
+            return "day"
+        else:
+            return "night"
 
 
-def get_wind(weather) -> str:
-    wind = int(weather["current_condition"][0]["windspeedKmph"])
-    wind_speed = [1, 5, 11, 19, 28, 38, 49, 61, 74, 88, 102, 117]
-    wind_res = ""
-    for i, w in enumerate(wind_speed):
-        if wind < w:
-            wind_res = WIND_SPEED[i]
-    if wind_res == "":
-        wind_res = WIND_SPEED[-1]
-    return f"{wind_res} {wind}Kph"
-
-
-def get_precipitation(weather) -> str:
-    precipitation = []
-    for h in weather["weather"][0]["hourly"]:
-        precipitation.append(int(h["chanceofrain"]))
-    avg = sum(precipitation[:3]) // len(precipitation[:3])
-    return f"{avg} %"
-
-
-def get_weather(weather) -> str:
-    code = weather["current_condition"][0]["weatherCode"]
-    if code in WWO_CODE:
-        if WWO_CODE[code] == "Sunny" and not (6 < datetime.now().hour < 18):
-            return "󰽥"
-        return WEATHER_SYMBOL[WWO_CODE[code]]
-    return "󰼯 "
-
-
-def format_tooltip(weather: dict) -> str:
-    string = ""
-    string += f"<b>{get_weather(weather)} {weather['current_condition'][0]['temp_C']}°C</b> {weather['nearest_area'][0]['areaName'][0]['value']}\n"
-    string += f"Moon {get_moon(weather)}\n"
-    string += f"Wind {get_wind(weather)}\n"
-    string += f"Rain {get_precipitation(weather)}"
-    return string
-
-
-try:
-    weather = requests.get("https://wttr.in/Aachen?format=j1").json()
-    data = {}
-    data["text"] = (
-        f"{get_weather(weather)} {weather['current_condition'][0]['temp_C']}°C"
-    )
-    data["tooltip"] = format_tooltip(weather)
-
-    print(json.dumps(data))
-except Exception:
-    print(json.dumps({"text": "󰼯 ", "tooltip": "<b>Something went wrong</b>"}))
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(prog="Weather")
+    parser.add_argument("-c", "--city")
+    parser.add_argument("-m", "--mode", nargs="+")
+    args = parser.parse_args()
+    try:
+        weather = Weather(args.city)
+        res = []
+        for mode in args.mode:
+            res.append(weather.get(mode))
+        print(json.dumps({"text": " ".join(res)}))
+    except Exception as e:
+        print(json.dumps({"text": "󰼯 "}))

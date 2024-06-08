@@ -1,26 +1,29 @@
-@import "macchiato.css";
-
 * {
     border: none;
     border-radius: 0px;
-    font-family: "JetBrainsMono Nerd Font";
+    font-family: "Hack Nerd Font";
     font-weight: bold;
     font-size: 16px;
-    min-height: 10px;
     transition: all 0.3s cubic-bezier(.55,-0.68,.48,1.682);
-
+    padding-top: 1px;
+    padding-bottom: 1px;
 }
 
 window#waybar {
-  background-color: rgba(0, 0, 0, .0);
+  background-color: rgba(0, 0, 0, .1);
 }
 
 #battery,
 #temperature,
 #cpu,
-#custom-weather,
-#clock,
 #workspaces,
+#memory,
+#disk,
+#custom-weather,
+#custom-temperature,
+#custom-rain,
+#custom-wind,
+#custom-moon,
 #custom-rofi,
 #tray,
 #pulseaudio,
@@ -28,121 +31,138 @@ window#waybar {
 #network,
 #custom-right,
 #custom-left {
-   color: @text;
-   margin: 4px;
-   opacity: 1;
-   border: 0px solid #181825;
-  padding-right:20px;
+  color: @text;
+  opacity: 1;
+  padding: 0 5px;
+}
+
+#custom-power{
+  color: @text;
+  padding: 0 5px;
+  background-color: rgba(0,0,0,0.2);
+  border-top-right-radius: 100% 100%;
 }
 
 
-#cpu{
-  color: @yellow;
-}
-
-
-tooltip {
-    background: @base;
-    color: @text;
-    border-radius: 22px;
+#window{
+  padding: 0 10px;
 }
 
 #workspaces button {
     box-shadow: none;
     text-shadow: none;
-    padding: 0px;
     border-radius: 9px;
-    margin-top: 3px;
-    margin-bottom: 3px;
-    padding-left: 3px;
-    padding-right: 3px;
-    color: @rosewater;
-    animation: gradient_f 20s ease-in infinite;
+    color: #d8dee9;
+    animation: gradient_f 2s ease-in infinite;
     transition: all 0.5s cubic-bezier(.55,-0.68,.48,1.682);
 }
-
 #workspaces button.active {
-    background: @peach;
-    color: @peach;
-    margin-left: 3px;
-    padding-left: 12px;
-    padding-right: 12px;
-    margin-right: 3px;
-    animation: gradient_f 20s ease-in infinite;
+    background-color: #5e81ac;
+    /* color: #5e81ac; */
+    padding-left: 10px;
+    padding-right: 10px;
+    animation: gradient_f 2s ease-in infinite;
     transition: all 0.3s cubic-bezier(.55,-0.68,.48,1.682);
 }
 
-#workspaces button:hover {
-    background: #b16286;
-    border: none;
-}
-
-#workspaces {
-    padding: 0px;
-    padding-left: 5px;
-    padding-right: 5px;
-}
-
-#custom-rofi {
-    color: #38ef7d; 
-    padding-left: 0px;
-    padding-right: 10px;
-}
-
 #custom-weather{
-  color:@blue;
+  color: #88c0d0;
+}
+
+#custom-moon{
+  color: #d8dee9;
+}
+
+#custom-wind{
+  color: #ebcb8b;
+}
+
+#custom-temperature{
+  color: #88c0d0;
+}
+
+#custom-rain{
+  color: #5e81ac;
+}
+#cpu{
+  color: #b48ead;
+}
+
+#memory{
+  color:#ebcb8b;
+}
+
+#disk{
+  color: #8fbcbb;
 }
 
 #temperature {
-    color: #eebd35;
-    padding-left: 0px;
-    padding-right: 19px;
+    color: #ebcb8b;
 }
 
 #temperature.critical {
-    color: #ff0000;
-    padding-left: 0px;
-    padding-right: 19px;
+    color: #bf616a;
 }
 
 #backlight {
-    color: #FF8B49;
-    padding-left: 0px;
-    padding-right: 19px;
+    color: #d08770;
 }
 
 #pulseaudio {
-    color: #EA879D;
-    padding-left: 0px;
-    padding-right: 19px;
+    color: #d08770;
+}
+#pulseaudio-slider{
+  padding: 0px 5px;
+}
+#pulseaudio-slider slider{
+  min-height:0px;
+  opacity: 0;
+  background-image: none;
+  border: none;
+  box-shadow: none;
+  margin: 0px;
+  padding: 0px;
+  background-color: rgba(255,255,255,1);
+}
+
+#pulseaudio-slider trough {
+    min-height: 5px;
+    min-width: 50px;
+    border-radius: 5px;
+    background-color:  rgba(0,0,0,0.5);
+}
+#pulseaudio-slider highlight{
+    min-width: 1px;
+    border-radius: 5px;
+    background-image: none;
+    background-color: #d08770;
+    color: #d08770;
 }
 
 #battery {
-    color: @green;
-    padding-left: 0px;
-    padding-right: 0px;
+    color: #a3be8c;
 }
 
-#tray {
-  padding-left: 0px;
-  padding-right: 19px;
+#cava{
+  color:#8fbcbb;  
+  padding-right: 20px;
 }
 
 #network {
-  color: @green;
-   padding-left: 0px;
-   padding-right: 19px;
+  color: #a3be8c;
 }
-#network.disconnect{
-  color: @red;
-  padding-left: 0px;
-  padding-right: 19px;
+
+#network.disconnected{
+  color: #bf616a;
+}
+
+#bluetooth{
+  color: #5e81ac;
 }
 
 #clock {
-   color: @text;
-   padding-left: 0px;
-   padding-right: 0px;
+  color: @text;
+  font-size: 16px;
 }
 
 

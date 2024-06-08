@@ -1,90 +1,66 @@
 {
     "layer": "top",
     "position": "top",
-    //"output": ["DP-4"],
-    "mod":"dock",
-    "margin-left": 30,
-    "margin-right": 30,
-    "margin-top": 5,
     "spacing": 1,
     "gtk-layer-shell":true,
-
-    "modules-left": ["custom/power","hyprland/window", "hyprland/workspaces"],
+    "modules-left": ["custom/power", "hyprland/workspaces","hyprland/window"],
     "modules-center": ["clock"],
-    "modules-right": ["cpu", "custom/weather", "battery", "pulseaudio", "network", "tray"],
-
+    "modules-right": ["tray", "group/weather", "group/hardware", "group/audio", "group/network", "group/media"],
+    // "hyprland/workspaces": {
+    //     "on-click": "activate",
+    //     "persistent-workspaces": {
+    //         "*": 2
+    //      },
+    //     "format": "{icon}",
+    //     "format-icons": {
+    //         "urgent": "",
+    //         "active": "",
+    //         "default": ""
+    //      }
+    // },
     "hyprland/workspaces": {
         "on-click": "activate",
-        "persistent-workspaces": {
-            "*": 2
-         },
-        "format": "{icon}",
-        "format-icons": {
-            "urgent": "",
-            "active": "",
-            "default": ""
-         }
-    },
-    "battery": {
-        "format": "{icon}",
-        "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
-        "format-charging": "󰂈 ",
-        "format-full": "󰂄 ",
-        "format-plugged": "󰂄 ",
-        "states": {
-            "good": 95,
-            "warning": 25,
-            "critical": 10
+        "format": "{icon}{windows}",
+        "format-window-separator":" ",
+        "window-rewrite-default":"󰘔",
+        "window-rewrite":{
+          "class<firefox>":"󰈹",
+          "class<firefox> title<.*github.*>":"󰊤",
+          "class<firefox> title<.*Reddit.*>":"",
+          "class<firefox> title<.*youtube.*>":"󰗃",
+          "class<firefox> title<.*RWTH.*>":"󰑴",
+          "class<firefox> title<.*mail.*>":"",
+          "class<kitty>":"",
+          "class<kitty> title<nvim>":" ",
+          "class<kitty> title<ssh>":"",
+          "class<thunar>":"",
+          "code":"󰨞",
+          "discord":"",
+          "spotify":"󰓇"
         },
-        "format-alt":"{icon} {capacity}%"
+        "move-to-monitor":true,
+        "persistent-workspaces":{
+          "eDP-1":[1,2],
+          "DP-4":[3,4],
+          "DP-5":[5,6]
+        },
+        "format-icons":{
+          "active":"",
+          "default":"",
+          "empty":""
+        }
     },
-
-    "custom/weather": {
-        "format": "{}",
-        "interval": 900,
-        "return-type": "json",
-        "on-click":"xdg-open https://wttr.in/",
-        "exec": "python ~/.config/waybar/modules/weather.py",
-        "exec-if": "ping wttr.in -c1"
-    },   
-    "tray": {
-        "icon-size": 20,
-        "spacing": 9
-    },
-    "clock": {
-        "interval": 1,
-        "format": "  {:%b %d  %H:%M:%S}", // %b %d %Y  --Date formatting
-        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        "format-alt": "{:%Y-%m-%d}"
-    },
-   "temperature": {
-        "critical-threshold": 80,
-        "interval": 2,
-        "format": " {temperatureC}°C",
-        "format-icons": ["", "", ""]
-    },
-    "cpu": {
-        "interval": 2,
-        "format": "  {usage}% ",
-        "tooltip": false,
-        "on-click":"kitty -e btop"
-    },
-    "memory": {
-        "interval": 2,
-        "format": "  {}%"
-    },
-   "disk": {
-        "interval": 15,
-        "format": "󰋊 {percentage_used}%"
-    },
-    "network": {
-        "format-wifi": " :{ipaddr}",
-        "format-ethernet": "󰈀 {ipaddr}",
-        "tooltip-format-wifi": "{essid} ({signalStrength}%)  ",
-        "tooltip-format": "{ifname} via {gwaddr} 󰈀 ",
-        "format-linked": "{ifname} (No IP)  ",
-        "format-disconnected": "Disconnected ⚠",
-        "on-click":"~/.config/eww/scripts/toggle_control_center.sh"
+    "group/audio":{
+      "orientation":"inherit",
+      "drawer":{
+        "transition-duration":500,
+        "children-class":"audio",
+        "transition-left-to-right":true
+      },
+      "modules":[
+        "pulseaudio",
+        "pulseaudio/slider"
+      ]
     },
     "pulseaudio": {
         "format": "{icon} {volume}",
@@ -105,8 +81,190 @@
         },
         "on-click": "pavucontrol -t 3"
     },
+    "pulseaudio/slider":{
+      "min":0,
+      "max": 100,
+      "orientation": "horizontal"
+    },
+    "group/media":{
+      "orientation":"inherit",
+      "drawer":{
+        "transition-duration":500,
+        "children-class":"media",
+        "transition-left-to-right":false
+      },
+      "modules":[
+        "cava",
+        "custom/media"
+      ]
+    },
+    "cava":{
+      //"cava_config":"~/.config/cava/config",
+      "framerate": 60,
+      "autosens":1,
+      "sensitivity": 1,
+      "bars": 12,
+      "hide_on_silence":false,
+      "lower_futoff_freq": 50,
+      "higher_cutoff_freq": 10000,
+      "method": "pipewire",
+      "source":"auto",
+      "reverse":false,
+      "stereo":true,
+      "bar_delimiter": 0,
+      "monstercat": false,
+      "waves": false,
+      "noise_reduction": 0.77,
+      "input_delay": 4,
+      "format-icons" : ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█" ],
+      "actions": {
+                 "on-click-right": "mode"
+                 }
+    },
+    "custom/media":{
+      "format":"{icon}{}",
+      "return-type":"json",
+      "escape":true,
+      "max-length": 30,
+      "smooth-scrolling-threshold": 10,
+      "on-click-right":"playerctl stop",
+      "on-click":"playerctl play-pause",
+      "on-scroll-up":"playerctl previous",
+      "on-scroll-down":"playerctl next",
+      "exec":"python ~/.config/waybar/modules/mediaplayer.py"
+    },
+    "group/hardware":{
+      "orientation":"inherit",
+      "drawer":{
+        "transition-duration":500,
+        "children-class":"not-cpu",
+        "transition-left-to-right":true
+      },
+      "modules":[
+        "cpu",
+        "memory",
+        "disk",
+        "temperature",
+        "battery"
+      ]
+    },
+    "temperature": {
+        "critical-threshold": 80,
+        "interval": 2,
+        "format": "{temperatureC}°C",
+        "format-icons": ["", "", ""]
+    },
+    "cpu": {
+        "interval": 2,
+        "format": " {usage}%",
+        "tooltip": false,
+        "on-click":"kitty -e btop"
+    },
+    "memory": {
+        "interval": 15,
+        "format": " {}%"
+    },
+   "disk": {
+        "interval": 15,
+        "format": "󰋊 {percentage_used}%"
+    },
+    "battery": {
+        "format": "{icon} {capacity}",
+        "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
+        "format-charging": "󰂈 ",
+        "format-full": "󰂄",
+        "format-plugged": "󰂄",
+        "states": {
+            "good": 95,
+            "warning": 25,
+            "critical": 10
+        },
+        "format-alt":"{icon} {capacity}%"
+    },
+    "group/weather":{
+      "orientation": "inherit",
+      "drawer":{
+        "transition-duration":500,
+        "children-class":"weather",
+        "transition-left-to-right": true
+      },
+      "modules":[
+        "custom/weather",
+        "custom/wind",
+        "custom/rain",
+        "custom/moon"
+      ]
+    },
+    "custom/weather": {
+        "format": "{}",
+        "interval": 900,
+        "return-type": "json",
+        "on-click":"xdg-open https://wttr.in/",
+        "exec": "python ~/.config/waybar/modules/weather.py -c aachen -m weather_time temperature"
+    },
+    "custom/rain": {
+        "format": " {}",
+        "interval": 900,
+        "return-type": "json",
+        "on-click":"xdg-open https://wttr.in/",
+        "exec": "python ~/.config/waybar/modules/weather.py -c aachen -m rain"
+    },
+    "custom/wind": {
+        "format": "{}",
+        "interval": 900,
+        "return-type": "json",
+        "on-click":"xdg-open https://wttr.in/",
+        "exec": "python ~/.config/waybar/modules/weather.py -c aachen -m wind"
+    },
+    "custom/moon": {
+        "format": "{}",
+        "interval": 900,
+        "return-type": "json",
+        "on-click":"xdg-open https://wttr.in/",
+        "exec": "python ~/.config/waybar/modules/weather.py -c aachen -m moon"
+    },
+    "tray": {
+        "icon-size": 20,
+        "spacing": 9
+    },
+    "clock": {
+        "interval": 1,
+        "format": "{:%H:%M:%S}", // %b %d %Y  --Date formatting
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "format-alt": "{:%Y-%m-%d}"
+    },
+    "group/network":{
+      "orientation":"inherit",
+      "drawer":{
+        "transition-duration":500,
+        "children-class":"audio",
+        "transition-left-to-right":false
+      },
+      "modules":[
+        "network",
+        "bluetooth"
+      ]
+    },
+    "network": {
+        "format-wifi": " {essid}",
+        "format-ethernet": "󰈀 {}",
+        "format-disconnected": "Disconnected ⚠ ",
+        "format-linked": "{ifname} (No IP)  ",
+        "tooltip-format": " {bandwidthUpBits}  {bandwidthDownBits}",
+        "tooltip-format-wifi": "{signalStrength}%  ",
+        "interval":"20",
+        "on-click":"kitty -e nmtui"
+    },
+    "bluetooth":{
+        "format":"󰂯 {}",
+        "format-disabled":"󰂲 {}",
+        "format-connected":"󰂯 {device_alias}",
+        "format-connected-battery": " {device_alias} {device_battery_percentage}%",
+        "on-click":"kitty -e bluetuith"
+    },
     "custom/power":{
-      "format": "󰣇 ",
+      "format": " ",
+       "tool-tip":false,
       "on-click": "~/.config/hypr/script/wlogout.sh"
     },
     "hyprland/window": {
@@ -114,17 +272,14 @@
       "seperate-outputs": true,
       "rewrite": {
             "papop@papoparch:(.*)": "$1  ",
-            "nvim(.*)":"nvim  ",
+            "nvim(.*)":"NVim  ",
             "(.*)Mozilla Firefox": "Firefox 󰈹 ",
             "(.*) - Visual Studio Code": "$1 󰨞 ",
             "(.*)Visual Studio Code": "Code 󰨞 ",
-            "(.*) thunar": "thunar 󰉋 ",
-            "(.*)Spotify": "Spotify 󰓇",
-            "(.*)Steam": "Steam 󰓓",
+            "(.*) thunar": "Thunar 󰉋 ",
+            "(.*)Spotify": "Spotify 󰓇 ",
+            "(.*)Steam": "Steam 󰓓 ",
             "on-click": "~/.config/hypr/scripts/Rofi-launcher.sh"
       }
-    },
-    "custom/sepp": {
-        "format": "|"
     }
 }

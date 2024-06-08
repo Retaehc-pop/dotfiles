@@ -10,13 +10,6 @@ fi
 export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
 gpgconf --launch gpg-agent
 
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-
 export PATH="/usr/local/bin:/usr/bin"
 
 autoload -Uz compinit && compinit
@@ -31,7 +24,6 @@ fi
 source "${ZINIT_HOME}/zinit.zsh"
 
 zinit light ohmyzsh/ohmyzsh
-zinit ice depth=1; zinit light romkatv/powerlevel10k
 zinit snippet OMZP::git
 zinit snippet OMZP::sudo
 zinit snippet OMZP::aws
@@ -68,9 +60,6 @@ export LD_LIBRARY_PATH=/opt/cuda/lib64
 
 # Completions
 
-# P10k customizations
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
 
 # Fix for password store
 export PASSWORD_STORE_GPG_OPTS='--no-throw-keyids'
@@ -89,8 +78,7 @@ if [ "$XDG_SESSION_TYPE" = "wayland" ]; then
     export MOZ_ENABLE_WAYLAND=1
 fi
 
-# To customize prompt, run `p10k configure` or edit ~/dotfiles/.p10k.zsh.
-[[ ! -f ~/dotfiles/.p10k.zsh ]] || source ~/dotfiles/.p10k.zsh
+eval "$(oh-my-posh init zsh --config $HOME/.config/ohmyposh/base.toml)"
 
 eval "$(zoxide init zsh)"
 
