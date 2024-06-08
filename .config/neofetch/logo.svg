@@ -1,0 +1,76 @@
+<svg
+   viewBox="0 0 500 500"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+    <g
+       id="g2191"
+       transform="matrix(17.81806,0,0,17.81806,-973.12136,-339.05844)"
+       style="fill-opacity:1" fill='currentColor'>
+      <rect
+         fill='currentColor' style="fill-opacity:1;fill-rule:evenodd"
+         id="rect167"
+         width="1.2"
+         height="22.730032"
+         x="58.266827"
+         y="21.806826" />
+      <rect
+         fill='currentColor' style="fill-opacity:1;fill-rule:evenodd"
+         id="rect401"
+         width="1.2"
+         height="24.932192"
+         x="60.79612"
+         y="21.874437" />
+      <rect
+         fill='currentColor' style="fill-opacity:1;fill-rule:evenodd"
+         id="rect403"
+         width="1.2"
+         height="6.1007867"
+         x="63.165752"
+         y="38.231266" />
+      <rect
+         fill='currentColor' style="fill-opacity:1;fill-rule:evenodd"
+         id="rect405"
+         width="1.2"
+         height="17.552921"
+         x="63.136265"
+         y="19.312628" />
+      <rect
+         fill='currentColor' style="fill-opacity:1;fill-rule:evenodd;stroke-width:0.997289"
+         id="rect509"
+         width="12.210026"
+         height="1.2"
+         x="58.295444"
+         y="33.311512" />
+      <rect
+         fill='currentColor' style="fill-opacity:1;fill-rule:evenodd;stroke-width:0.90028"
+         id="rect744"
+         width="7.0033746"
+         height="1.2"
+         x="63.136265"
+         y="35.665546" />
+      <rect
+         fill='currentColor' style="fill-opacity:1;fill-rule:evenodd"
+         id="rect744-3"
+         width="8.6540794"
+         height="1.1999829"
+         x="61.982792"
+         y="21.874454" />
+      <rect
+         fill='currentColor' style="fill-opacity:1;fill-rule:evenodd;stroke-width:0.836564"
+         id="rect744-8"
+         width="6.0471354"
+         height="1.2"
+         x="64.069229"
+         y="19.312628" />
+      <path
+         id="path1011"
+         fill='currentColor' style="fill-opacity:1;fill-rule:evenodd;stroke-width:0.999978"
+         d="m 70.116128,19.312721 -0.0077,1.199881 c 2.738374,0.0033 5.272286,1.463607 6.64138,3.801749 1.371003,2.340978 1.371003,5.225273 0,7.566251 -1.369094,2.338142 -3.898189,3.779834 -6.636563,3.783125 v 1.199195 c 3.183441,1.8e-4 6.125094,-1.674281 7.716617,-4.392488 1.591177,-2.717525 1.591177,-6.065499 0,-8.783024 -1.591523,-2.718207 -4.530329,-4.374869 -7.71377,-4.374689 z"
+         />
+      <path
+         id="path1851"
+         fill='currentColor' style="fill-opacity:1;stroke-width:0.931498"
+         d="m 70.449724,21.87245 v 1.205078 c 1.82505,3.24e-4 3.511339,0.974127 4.423829,2.554687 0.912742,1.580835 0.912742,3.52854 0,5.109375 -0.91249,1.58056 -2.548276,2.569101 -4.373326,2.569425 l 0.0026,1.200334 c 2.260972,4.14e-4 4.297206,-1.190426 5.427381,-3.148665 1.130018,-1.957336 1.130018,-4.368836 0,-6.326172 -1.130175,-1.958239 -3.219497,-3.164476 -5.480469,-3.164062 z"
+         />
+    </g>
+</svg>
