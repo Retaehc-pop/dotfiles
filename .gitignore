@@ -1,0 +1,7 @@
+*~
+.emacs.d/session.*
+.emacs.d/#*#
+.config/nvim/lazy-lock.json
+.pam_environment
+.profile
+
