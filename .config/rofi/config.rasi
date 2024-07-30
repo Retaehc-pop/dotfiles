@@ -1,0 +1,96 @@
+configuration {
+  display-drun: "󱓞 Applications";
+  show-icons: true;
+}
+
+* {
+    font:   "Hack Nerd Font 18";
+
+    background-color:   transparent;
+    text-color:         #C0CAF5;
+
+    margin:     0px;
+    padding:    0px;
+    spacing:    0px;
+}
+
+window {
+    location:       center;
+    width:          700;
+    height:         500;
+    border-radius:  24px;
+
+    border-color:    #b4befe;
+    border:             2px;
+    background-color:   rgba(30, 30, 62, 60%);
+}
+
+mainbox {
+    padding:    12px;
+}
+
+inputbar {
+    background-color:  rgba(30, 30, 62, 60 %);
+    border-color:      #b4befe;
+    
+    border:         2px;
+    border-radius:  16px;
+
+    padding:    8px 16px;
+    spacing:    8px;
+    children:   [ prompt, entry ];
+}
+
+prompt {
+    text-color: #a9b1d6;
+}
+
+entry {
+    placeholder:        "Search";
+    color: #EEEEEE;
+    placeholder-color:  #FFFFFF66;
+}
+
+message {
+    margin:             12px 0 0;
+    border-radius:      16px;
+    border-color:       #3D3D3D80;
+    background-image:    linear-gradient(45, #DA025D, #AF1E7B, #A12C92, #8651BB);
+}
+
+textbox {
+    padding:    8px 24px;
+}
+
+listview {
+    background-color:   transparent;
+
+    margin:     12px 0 0;
+    lines:      8;
+    columns:    1;
+
+    fixed-height: false;
+}
+
+element {
+    padding:        8px 16px;
+    spacing:        8px;
+    border-radius:  16px;
+}
+
+element normal active {
+    text-color: #7aa2f7;
+}
+
+element selected normal, element selected active {
+    background-color:    #e0af68;
+}
+
+element-icon {
+    size:           1em;
+    vertical-align: 0.5;
+}
+
+element-text {
+    text-color: inherit;
+}
