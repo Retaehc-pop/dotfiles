@@ -43,8 +43,8 @@
         "transition-left-to-right":true
       },
       "modules":[
-        "pulseaudio",
-        "custom/media"
+        "pulseaudio"
+        //"custom/media"
         //"pulseaudio/slider"
       ]
     },
@@ -80,8 +80,8 @@
         "transition-left-to-right":false
       },
       "modules":[
-        "cava"
-        //"custom/media"
+        "cava",
+        "custom/media"
       ]
     },
     "cava":{

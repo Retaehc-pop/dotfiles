@@ -57,12 +57,12 @@ return {
       },
     },
   },
-  {
-    "nvim-cmp",
-    opts = function(_, opts)
-      table.insert(opts.sorting.comparators, 1, require("clangd_extensions.cmp_scores"))
-    end,
-  },
+  --{
+  --  "nvim-cmp",
+  --  opts = function(_, opts)
+  --    table.insert(opts.sorting.comparators, 1, require("clangd_extensions.cmp_scores"))
+  --  end,
+  --},
   {
     "p00f/clangd_extensions.nvim",
     lazy = true,
