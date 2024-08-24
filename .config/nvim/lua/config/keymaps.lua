@@ -13,5 +13,11 @@ map("v", "<A-Down>", ":m '>+1<cr>gv=gv", { desc = "Move Down" })
 map("v", "<A-Up>", ":m '<-2<cr>gv=gv", { desc = "Move Up" })
 
 -- indentation
-map({ "n", "v" }, "<tab>", ">gv")
-map({ "n", "v" }, "<S-tab>", "<gv")
+map("v", "<tab>", ">gv")
+map("v", "<S-tab>", "<gv")
+
+-- duplicate
+map({ "n", "i" }, "<C-d>", "<esc>yyp", { desc = "duplicate line" })
+
+--  undo
+map({ "n", "i" }, "<C-z>", "<esc>ua", { desc = "undo" })

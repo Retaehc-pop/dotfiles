@@ -8,6 +8,7 @@ return {
         "c",
         "css",
         "cpp",
+        "go",
         "haskell",
         "html",
         "javascript",
