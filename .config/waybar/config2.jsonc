@@ -3,10 +3,13 @@
     "position": "top",
     "spacing": 1,
     "gtk-layer-shell":true,
-    "modules-left": ["custom/power", "hyprland/workspaces","hyprland/window"],
-    "modules-center": ["group/weather", "group/hardware","custom/date","cava","clock", "bluetooth","network"],
-    "modules-right": ["tray",  "group/audio","custom/media","battery"],
-    "hyprland/workspaces": {
+    "modules-left": ["custom/left","hyprland/window","hyprland/workspaces"],
+    "modules-center": [
+     "cpu","memory","temperature","custom/date",
+    "custom/power",
+    "clock", "custom/weather","custom/rain","custom/moon"],
+    "modules-right": ["tray", "group/audio","network","bluetooth","battery","custom/right"],
+     "hyprland/workspaces": {
         "on-click": "activate",
         "format": "{icon}{windows}",
         "format-window-separator":" ",
@@ -18,6 +21,7 @@
           "class<firefox> title<.*youtube.*>":"󰗃",
           "class<firefox> title<.*RWTH.*>":"󰑴",
           "class<firefox> title<.*mail.*>":"",
+          "class<zen-alpha>":"󰖟",
           "class<org.pwmt.zathura>":"",
           "class<kitty>":"",
           "class<kitty> title<nvim>":"",
@@ -65,7 +69,7 @@
             "car": "",
             "default": ["", "", ""]
         },
-        "on-click": "pavucontrol -t 3"
+        "on-click": "kitty -e pulsemixer"
     },
     "pulseaudio/slider":{
       "min":0,
@@ -237,8 +241,8 @@
     },
     "network": {
         "format-wifi": " {essid}",
-        "format-ethernet": "󰈀 {}",
-        "format-disconnected": "Disconnected ⚠ ",
+        "format-ethernet": "󰈀",
+        "format-disconnected": "󰖪",
         "format-linked": "{ifname} (No IP)  ",
         "tooltip-format": " {bandwidthUpBits}  {bandwidthDownBits}",
         "tooltip-format-wifi": "{signalStrength}%  ",
@@ -253,24 +257,34 @@
         "on-click":"kitty -e bluetuith"
     },
     "custom/power":{
-      "format": " ",
+      "format": "",
       "tool-tip":false,
       "on-click": "~/.config/hypr/script/wlogout.sh",
       "tooltip":false
     },
     "hyprland/window": {
-      "format": "{}",
+      "format": "{class} {title}",
       "seperate-outputs": true,
       "rewrite": {
-            "papop@papoparch:(.*)": "$1  ",
-            "nvim(.*)":"NVim  ",
-            "(.*)Mozilla Firefox": "Firefox 󰈹 ",
-            "(.*) - Visual Studio Code": "$1 󰨞 ",
-            "(.*)Visual Studio Code": "Code 󰨞 ",
-            "(.*) thunar": "Thunar 󰉋 ",
-            "(.*)Spotify": "Spotify 󰓇 ",
-            "(.*)Steam": "Steam 󰓓 ",
-            "on-click": "~/.config/hypr/scripts/Rofi-launcher.sh"
-      }
+            "papop@papoparch:(.*)":      " ",
+            "(.*)nvim":                  "NVim  ",
+            "(.*)Mozilla Firefox":       "Firefox 󰈹 ",
+            "(.*)Zen Browser":           "Zen 󰖟  ",
+            "(.*)Visual Studio Code":    "Code 󰨞 ",
+            "(.*) thunar":               "Thunar 󰉋 ",
+            "Spotify(.*)":               "Spotify 󰓇 ",
+            "(.*)Discord":               "Discord  ",
+            "(.*)Steam":                 "Steam 󰓓 ",
+            "kitty(.*)":                 "Terminal  ",
+      },
+    "separate-outputs": true
+    },
+    "custom/left":{
+      "format":"",
+      "tooltip":false
+    },
+    "custom/right":{
+      "format":"",
+      "tooltip":false,
     }
 }

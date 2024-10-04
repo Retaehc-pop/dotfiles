@@ -99,7 +99,6 @@ class PlayerManager:
         player_name = player.props.player_name
         artist = player.get_artist()
         title = player.get_title()
-
         track_info = ""
         if player_name == "spotify" and "mpris:trackid" in metadata.keys() and ":ad:" in player.props.metadata["mpris:trackid"]:
             track_info = "Advertisement"
@@ -132,20 +131,16 @@ def parse_arguments():
 
     # Increase verbosity with every occurrence of -v
     parser.add_argument("-v", "--verbose", action="count", default=0)
-
     parser.add_argument("-x", "--exclude", "- Comma-separated list of excluded player")
 
     # Define for which player we"re listening
     parser.add_argument("--player")
-
     parser.add_argument("--enable-logging", action="store_true")
-
     return parser.parse_args()
 
 
 def main():
     arguments = parse_arguments()
-
     player = PlayerManager(arguments.player, arguments.exclude)
     player.run()
 
