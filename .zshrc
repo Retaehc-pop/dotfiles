@@ -42,7 +42,6 @@ export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 
 source $HOME/.profile
-source $HOME/.config/tmuxinator/tmuxinator.zsh
 
 setopt auto_cd
 

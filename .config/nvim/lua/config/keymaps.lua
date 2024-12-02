@@ -21,3 +21,5 @@ map({ "n", "i" }, "<C-d>", "<esc>yyp", { desc = "duplicate line" })
 
 --  undo
 map({ "n", "i" }, "<C-z>", "<esc>ua", { desc = "undo" })
+
+--map({ "i" }, "<c-/>", "<esc>gcc", { desc = "comment" })
