@@ -1,7 +1,8 @@
 -- Keymaps are automatically loaded on the VeryLazy event
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 -- Add any additional keymaps here
-
+--
+--
 local map = vim.keymap.set
 
 -- move line up/down
@@ -21,5 +22,3 @@ map({ "n", "i" }, "<C-d>", "<esc>yyp", { desc = "duplicate line" })
 
 --  undo
 map({ "n", "i" }, "<C-z>", "<esc>ua", { desc = "undo" })
-
---map({ "i" }, "<c-/>", "<esc>gcc", { desc = "comment" })
