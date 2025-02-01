@@ -1,0 +1,64 @@
+#:schema https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json
+
+version = 2
+auto_upgrade = false
+final_space = true
+console_title_template = '{{ .Shell }} in {{ .Folder }}'
+
+[[blocks]]
+  type = 'prompt'
+  alignment = 'left'
+  newline = true
+
+  [[blocks.segments]]
+    type = 'path'
+    style = 'plain'
+    background = 'transparent'
+    foreground = 'p:blue'
+    template = '{{ .Path }} '
+
+    [blocks.segments.properties]
+      style = 'full'
+  
+  [[blocks.segments]]
+    type = 'git'
+    style = 'plain'
+    foreground = ''
+    background = 'transparent'
+    template = '{{ .HEAD }}{{ if or (.Working.Changed) (.Staging.Changed) }}*{{ end }}{{ if gt .Behind 0 }}{{ end }}{{ if gt .Ahead 0 }}{{ end }}'
+
+    [blocks.segments.properties]
+      fetch_status = true
+      commit_icon = '@'
+
+[[blocks]]
+  type = 'prompt'
+  alignment = 'left'
+  newline = true
+  
+  [[blocks.segments]]
+    type = 'text'
+    style = 'plain'
+    background = 'transparent'
+    foreground_templates = [
+      "{{ if gt .Code 0 }}p:red{{ end }}",
+      "{{ if eq .Code 0 }}p:teal{{ end }}",
+    ]
+    template = ''
+
+[transient_prompt]
+  foreground_templates = [
+      "{{ if gt .Code 0 }}p:red{{ end }}",
+      "{{ if eq .Code 0 }}p:teal{{ end }}",
+    ]
+  background = 'transparent'
+  template = ''
+
+[palette]
+red = "#bf616a"
+orange = "#d08770"
+yellow = "#ebcb8b"
+green = "#a3be8c"
+blue = "#88c0d0"
+purple = "#b48ead"
+teal = "#8fbcbb"
