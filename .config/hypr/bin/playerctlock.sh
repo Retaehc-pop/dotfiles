@@ -17,7 +17,7 @@ get_metadata() {
 get_source_info() {
   trackid=$(get_metadata "mpris:trackid")
   if [[ "$trackid" == *"firefox"* ]]; then
-    echo -e "Firefox 󰈹 "
+    echo -e "Firefox 󰈹 |"
   elif [[ "$trackid" == *"spotify"* ]]; then
     echo -e "Spotify  "
   elif [[ "$trackid" == *"chromium"* ]]; then
@@ -68,9 +68,9 @@ case "$1" in
 --status)
   status=$(playerctl status 2>/dev/null)
   if [[ $status == "Playing" ]]; then
-    echo "󰎆 "
+    echo "󰎆 |"
   elif [[ $status == "Paused" ]]; then
-    echo "󱑽 "
+    echo "󱑽 |"
   else
     echo ""
   fi

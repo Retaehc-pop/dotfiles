@@ -307,7 +307,7 @@
   "custom/power": {
     "format": "",
     "tool-tip": false,
-    "on-click": "~/.config/hypr/script/wlogout.sh",
+    "on-click": "~/.config/hypr/bin/wlogout.sh",
     "tooltip": false
   },
   "hyprland/window": {

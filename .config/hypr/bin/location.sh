@@ -1,6 +1,8 @@
 #!/bin/bash
 
-CITY=$(curl -s https://ipinfo.io/city 2>/dev/null)
+#CITY=$(curl -s 'https://ipinfo.io/city' 2>/dev/null)
+
+CITY=$(curl -s 'http://ip-api.com/json/?fields=city' 2>/dev/null | grep -oP '(?<="city":")[^"]*')
 
 if [[ -n "$CITY" ]]; then
   # Fetch weather info for the detected city from wttr.in
