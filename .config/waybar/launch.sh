@@ -1,12 +1,12 @@
 # Quit running waybar instances
 
-CONFIG_FILES="$HOME/.config/waybar/config2.jsonc $HOME/.config/waybar/styles2.css"
+CONFIG_FILES="$HOME/.config/waybar/config.jsonc $HOME/.config/waybar/styles.css"
 
 killall waybar
 
 start_waybar() {
   if [[ $USER = "papop" ]]; then
-    waybar -c ~/dotfiles/.config/waybar/config2.jsonc -s ~/dotfiles/.config/waybar/styles2.css &
+    waybar -c ~/dotfiles/.config/waybar/config.jsonc -s ~/dotfiles/.config/waybar/styles.css &
   else
     waybar &
   fi

@@ -1,42 +1,37 @@
 return {
-  -- add more treesitter parsers
   {
     "nvim-treesitter/nvim-treesitter",
     opts = {
       ensure_installed = {
         "bash",
         "c",
-        "css",
         "cpp",
-        "go",
-        "haskell",
-        "html",
-        "javascript",
-        "json",
+        "cuda",
+        "cmake",
         "lua",
+        "json",
         "markdown",
-        "markdown_inline",
         "python",
-        "regex",
-        "tsx",
         "typescript",
+        "tsx",
         "vim",
         "yaml",
+        "html",
+        "javascript",
       },
     },
   },
-
-  -- since `vim.tbl_deep_extend`, can only merge tables and not lists, the code above
-  -- would overwrite `ensure_installed` with the new value.
-  -- If you'd rather extend the default config, use the code below instead:
   {
-    "nvim-treesitter/nvim-treesitter",
-    opts = function(_, opts)
-      -- add tsx and treesitter
-      vim.list_extend(opts.ensure_installed, {
-        "tsx",
-        "typescript",
-      })
-    end,
+    "nvim-neo-tree/neo-tree.nvim",
+    opts = {
+      filesystem = {
+        filtered_items = {
+          visible = false,
+          hide_by_pattern = {
+            "*.o", -- hide object files
+          },
+        },
+      },
+    },
   },
 }

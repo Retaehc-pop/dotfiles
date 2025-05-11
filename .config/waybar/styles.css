@@ -1,3 +1,14 @@
+@define-color nord-red    #bf616a;
+@define-color nord-orange #d08770;
+@define-color nord-yellow #ebcb8b;
+@define-color nord-green  #a3be8c;
+@define-color nord-purple #b48ead;
+@define-color nord-teal   #8fbcbb;
+@define-color nord-cyan   #88c0d0;
+@define-color nord-ice    #81a1c1;
+@define-color nord-blue   #5e81ac;
+
+
 * {
     border: none;
     border-radius: 0px;
@@ -5,171 +16,120 @@
     font-weight: bold;
     font-size: 16px;
     transition: all 0.3s cubic-bezier(.55,-0.68,.48,1.682);
-    padding-top: 1px;
-    padding-bottom: 1px;
+    /*padding-bottom: 1px;*/
+    /* padding-top: 1px; */
+    color:rgba(255,255,255,1);
+    
 }
 
 window#waybar {
   background-color: rgba(0, 0, 0, .1);
 }
 
-#battery,
-#temperature,
-#cpu,
-#workspaces,
-#memory,
-#disk,
-#custom-weather,
-#custom-temperature,
-#custom-rain,
-#custom-wind,
-#custom-moon,
-#custom-rofi,
-#tray,
-#pulseaudio,
-#backlight,
-#network,
-#bluetooth,
-#custom-right,
-#custom-left {
-  color: @text;
-  opacity: 1;
-  padding: 0 5px;
-}
-
-#custom-power{
-  color: @text;
-  padding: 0 5px;
-  background-color: rgba(0,0,0,0.2);
-  border-top-right-radius: 100% 100%;
-}
-
-
-#window{
-  padding: 0 10px;
-  color: @text;
-}
-
-#workspaces button:hover, #workspaces button:active {
-  background-color: rgba(0,0,0,0);
-}
 
 #workspaces button {
-    box-shadow: none;
-    text-shadow: none;
-    /* border-radius: 5px; */
     border: 1px;
-    border-style: none none solid;
     color: #d8dee9;
+    margin: 1px;
+    padding-left: 1px;
     background-color: rgba(255,255,255,0);
     transition: none;
 }
 
 #workspaces button.active {
-    border-radius: 5px;
-    border: 2px solid #5e81ac;
-  }
-
-#custom-weather{
-  color: #88c0d0;
+    border-bottom: 2px solid @nord-blue;
+    color: @nord-ice;
+    /* border: 2px solid @nord-blue; */
 }
 
-#custom-moon{
-  color: #d8dee9;
+#window{
+  padding-left:10px;
 }
 
-#custom-wind{
-  color: #ebcb8b;
+#workspaces,
+#cpu,
+#memory,
+#disk,
+#temperature,
+#custom-date,
+#custom-power,
+#clock,
+#custom-weather,
+#custom-temperature,
+#custom-rain,
+#custom-wind,
+#custom-moon,
+#tray,
+#pulseaudio,
+#backlight,
+#network,
+#bluetooth,
+#battery
+{
+  margin: 0 5px;
 }
 
-#custom-temperature{
-  color: #88c0d0;
-}
-
-#custom-rain{
-  color: #5e81ac;
-}
 #cpu{
-  color: #b48ead;
+  color:@nord-ice;
 }
-
 #memory{
   color:#ebcb8b;
 }
-
 #disk{
-  color: #8fbcbb;
-}
-
-#temperature {
-    color: #ebcb8b;
-}
-
-#temperature.critical {
-    color: #bf616a;
-}
-
-#backlight {
-    color: #d08770;
-}
-
-#pulseaudio {
-    color: #d08770;
-}
-#pulseaudio-slider{
-  padding: 0px 5px;
-}
-#pulseaudio-slider slider{
-  min-height:0px;
-  opacity: 0;
-  background-image: none;
-  border: none;
-  box-shadow: none;
-  margin: 0px;
-  padding: 0px;
-  background-color: rgba(255,255,255,1);
-}
-
-#pulseaudio-slider trough {
-    min-height: 5px;
-    min-width: 50px;
-    border-radius: 5px;
-    background-color:  rgba(0,0,0,0.5);
-}
-#pulseaudio-slider highlight{
-    min-width: 1px;
-    border-radius: 5px;
-    background-image: none;
-    background-color: #d08770;
-    color: #d08770;
-}
-
-#battery {
-    color: #a3be8c;
-   padding-right: 20px;
 
 }
+#temperature{
+  color: @nord-orange;
+}
 
-#cava{
-  color:#8fbcbb;
- }
+#custom-date,
+#clock{
+  color: #acb1bd;
+}
+#custom-weather{
+  color: @nord-teal;
+}
+#custom-rain{
+  color: @nord-blue;
+}
 
+#custom-moon{
+  color: #4c566a;
+}
+
+
+
+#custom-vpn.vpn-on{
+  color: @nord-green
+}
+
+#custom-vpn.vpn-off{
+  color: @nord-red
+}
 
 #network {
-  color: #a3be8c;
+  color: @nord-green;
 }
 
 #network.disconnected{
-  color: #bf616a;
+  color: @nord-red;
 }
 
 #bluetooth{
-  color: #5e81ac;
+  color: @nord-blue;
 }
 
-#clock {
-  color: @text;
-  font-size: 16px;
+#custom-volume{
+  color: @nord-orange;
 }
 
-
+#battery{
+  padding-right: 10px;
+  color: @nord-green;
+}
+#battery.warning{
+  color: @nord-yellow;
+}
+#battery.critical{
+  color: @nord-red;
+}
