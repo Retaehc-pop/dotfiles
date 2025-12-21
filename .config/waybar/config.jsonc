@@ -17,6 +17,7 @@
     //   // "custom/moon"
   ],
   "modules-right": [
+    "custom/weather",
     "cpu",
     "custom/vpn",
     "network",
@@ -27,6 +28,7 @@
   "hyprland/workspaces": {
     "format": "{icon}",
     "on-click": "activate",
+    "sort-by-coordinates": true,
     "persistent-workspaces": {
       "1": [],
       "2": [],
@@ -267,7 +269,7 @@
     "format": "{:%H:%M:%S}"
   },
   "custom/vpn": {
-    "format": "{} ",
+    "format": "{}",
     "interval": 2,
     "return-type": "json",
     "exec": "~/.config/waybar/modules/vpn_status.sh"
@@ -294,7 +296,7 @@
     "format-wifi": " {essid}",
     "format-ethernet": "󰈀",
     "format-disconnected": "󰖪",
-    "format-linked": "{ifname} (No IP)  ",
+    // "format-linked": "{ifname} (No IP)  ",
     "tooltip-format": " {bandwidthUpBits}  {bandwidthDownBits}",
     "tooltip-format-wifi": "{signalStrength}%  ",
     "interval": "20",

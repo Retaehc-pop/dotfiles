@@ -161,6 +161,8 @@ class Weather:
 
     def get_weather_time(self, raw_data):
         weather = self.get_weather(raw_data)
+        return weather
+
         time = self.get_sun(raw_data)
         match time:
             case "day":

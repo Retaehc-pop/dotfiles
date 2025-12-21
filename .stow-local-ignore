@@ -2,6 +2,7 @@ README.org
 docs
 .gitignore
 .git
+arch_install.sh
 installer.sh
 zshrc.org
 udevmon.yaml
