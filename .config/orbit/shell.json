@@ -1,0 +1,85 @@
+{
+  "name": "orbit",
+  "clock24Format": true,
+  "monitors":[
+	  {
+    "id" : "left",
+		"name":"DP-4",
+		"primary": false,
+		"description": "",
+		"bars":[
+      {
+        "position": "top",
+        "widgetConfig":{
+          "statusIcon":{
+            "showBattery": true,
+            "showWifi": true,
+            "showBluetooth": true
+          }
+        },
+        "widgets":{
+          "start":["clock","date"],
+          "center":["clock","wat"],
+          "end":["clock","statusIcon"]
+        }
+      },
+      {
+        "position": "bottom",
+        "widgetConfig":{
+          "statusIcon":{
+            "showBattery": true,
+            "showWifi": true,
+            "showBluetooth": true
+          }
+        },
+        "widgets":{
+          "start":["clock","weather"],
+          "center":["date","clock"],
+          "end":["clock","wat"]
+        }
+      }
+      ]
+	  },
+    {
+    "id" : "laptop",
+		"name":"eDP-1",
+		"primary": false,
+		"description": "",
+		"bars":[
+      {
+        "position": "right",
+        "widgets":{
+          "start":["clock","date"],
+          "center":["clock","wat"],
+          "end":["clock","wat"]
+        }
+      }
+      ]
+	  },
+  {
+    "id" : "center",
+		"name":"DP-5",
+		"primary": false,
+		"description": "",
+		"bars":[
+      {
+        "position": "left",
+        "widgetConfig":{
+          "statusIcon":{
+            "showBattery": true,
+            "showWifi": true,
+            "showBluetooth": true,
+            "showAudio": true,
+            "showMicrophone": true
+          }
+        },
+                "widgets":{
+          "start":["clock","test"],
+          "center":["clock","weather"],
+          "end":["statusIcon","wat"]
+        }
+      }
+      ]
+	  }
+  ]
+}
