@@ -212,10 +212,12 @@ vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper win
 -- NOTE: Move the line up/down with alt
 vim.keymap.set('n', '<A-Up>', ':m .-2<CR>==', { desc = 'Move line up' })
 vim.keymap.set('n', '<A-Down>', ':m .+1<CR>==', { desc = 'Move line down' })
-
--- NOTE: indenting the selected portion
 vim.keymap.set('v', '<A-Up>', ":m '<-2<CR>gv=gv", { desc = 'Move selection up' })
 vim.keymap.set('v', '<A-Down>', ":m '>+1<CR>gv=gv", { desc = 'Move selection down' })
+
+-- NOTE: indenting the selected portion
+vim.keymap.set('v', '<Tab>', '>gv', { desc = 'Indent selection' })
+vim.keymap.set('v', '<S-Tab>', '<gv', { desc = 'Unindent selection' })
 
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
@@ -801,6 +803,8 @@ require('lazy').setup({
         cpp = { 'clang-format' },
         --
         qml = { 'qmlformat' },
+        json = { 'prettier' },
+        jsonc = { 'prettier' },
         -- You can use 'stop_after_first' to run the first available formatter from the list
         -- javascript = { "prettierd", "prettier", stop_after_first = true },
       },
@@ -1040,7 +1044,7 @@ require('lazy').setup({
   --    This is the easiest way to modularize your config.
   --
   --  Uncomment the following line and add your plugins to `lua/custom/plugins/*.lua` to get going.
-  -- { import = 'custom.plugins' },
+  { import = 'custom.plugins' },
   --
   -- For additional information with loading, sourcing and examples see `:help lazy.nvim-🔌-plugin-spec`
   -- Or use telescope!

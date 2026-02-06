@@ -18,8 +18,8 @@
           }
         },
         "widgets":{
-          "start":["clock","date"],
-          "center":["clock","wat"],
+          "start":["clock","tray"],
+          "center":["clock","date"],
           "end":["clock","statusIcon"]
         }
       },
@@ -35,7 +35,7 @@
         "widgets":{
           "start":["clock","weather"],
           "center":["date","clock"],
-          "end":["clock","wat"]
+          "end":["clock","tray"]
         }
       }
       ]
