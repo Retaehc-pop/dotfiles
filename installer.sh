@@ -13,7 +13,7 @@ set -Eeuo pipefail
 
 # ------- DEPENDENCIES ------------
 echo "[LOG] Installing package"
-pacman -S --needed --noconfirm neovim bluez bluez-utils networkmanager stow git base-devel nano zsh chromium sddm python cmake yazi zathura cava btop quickshell go python zoxide man less fzf fastfetch btop htop wl-clipboard cliphist clang unzip zip luarocks qt6-wayland tree-sitter-cli pyright yarn npm imagemagick brightnessctl ripgrep fd udiskie wlsunset resvg 7zip
+pacman -S --needed --noconfirm neovim bluez bluez-utils networkmanager stow git base-devel nano zsh chromium sddm python cmake yazi zathura cava btop quickshell go python zoxide man less fzf fastfetch btop htop wl-clipboard cliphist clang unzip zip luarocks qt6-wayland tree-sitter-cli pyright yarn npm imagemagick brightnessctl ripgrep fd udiskie wlsunset resvg 7zip github-cli spotify-launcher
 
 
 # -------- AUR --------
