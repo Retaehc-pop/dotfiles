@@ -3,5 +3,4 @@
 .emacs.d/#*#
 .config/nvim/lazy-lock.json
 .pam_environment
-.profile
 .config/discord

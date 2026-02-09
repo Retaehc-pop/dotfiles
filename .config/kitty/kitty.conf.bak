@@ -1,0 +1,103 @@
+# vim:ft=kitty
+
+## name:     Nordic
+
+# The basic colors
+foreground              #BBC3D4
+background              #242933
+selection_foreground    #C0C8D8
+selection_background    #3B4252
+
+# Cursor colors
+cursor                  #E5E9F0
+cursor_text_color       #ECEFF4
+
+# URL underline color when hovering with mouse
+url_color               #F4DBD6
+
+# Kitty window border colors
+active_border_color     #B7BDF8
+inactive_border_color   #6E738D
+bell_border_color       #EED49F
+
+# OS Window titlebar colors
+wayland_titlebar_color  #242933
+macos_titlebar_color    #242933
+
+# Tab bar colors
+active_tab_foreground   #181926
+active_tab_background   #C6A0F6
+inactive_tab_foreground #CAD3F5
+inactive_tab_background #1E2030
+tab_bar_background      #181926
+
+# Colors for marks (marked text in the terminal)
+mark1_foreground #242933
+mark1_background #B7BDF8
+mark2_foreground #242933
+mark2_background #C6A0F6
+mark3_foreground #242933
+mark3_background #7DC4E4
+
+# The 16 terminal colors
+
+# BLACK
+color0 #191D24
+
+# RED
+color1 #BF616A
+
+# GREEN
+color2 #A3BE8C
+
+# YELLOW
+color3 #EBCB8B
+
+# BLUE
+color4 #81A1C1
+
+# MAGENTA
+color5 #B48EAD
+
+# CYAN
+color6 #8FBCBB
+
+# WHITE
+color7 #E5E9F0
+
+# GRAY
+color8 #2E3440
+
+# Bright RED
+color9 #C5727A
+
+# Bright GREEN
+color10 #B1C89D
+
+# Bright YELLOW
+color11 #EFD49F
+
+# Bright BLUE
+color12 #88C0D0
+
+# Bright MAGENTA
+color13 #BE9DB8
+
+# Bright CYAN
+color14 #9FC6C5
+
+# Bright WHITE
+color15 #ECEFF4
+
+
+window_padding_width 5
+
+# BEGIN_KITTY_FONTS
+font_family      family='Hack Nerd Font Mono' postscript_name=HackNFM-Regular
+bold_font        auto
+italic_font      auto
+bold_italic_font auto
+font_size 12
+# END_KITTY_FONTS
+
+allow_remote_control yes
