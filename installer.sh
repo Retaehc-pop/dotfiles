@@ -13,7 +13,7 @@ set -Eeuo pipefail
 
 # ------- DEPENDENCIES ------------
 echo "[LOG] Installing package"
-pacman -S --needed --noconfirm neovim bluez bluez-utils networkmanager stow git base-devel nano zsh chromium sddm python cmake yazi zathura cava btop quickshell go python zoxide man less fzf fastfetch btop htop wl-clipboard cliphist clang unzip zip luarocks qt6-wayland tree-sitter-cli pyright yarn npm imagemagick brightnessctl ripgrep fd udiskie wlsunset resvg 7zip github-cli spotify-launcher
+pacman -S --needed --noconfirm neovim bluez bluez-utils networkmanager stow git base-devel nano zsh chromium sddm python cmake yazi zathura cava btop quickshell go python zoxide man less fzf fastfetch btop htop wl-clipboard cliphist clang unzip zip luarocks qt6-wayland tree-sitter-cli pyright yarn npm imagemagick brightnessctl ripgrep fd udiskie wlsunset resvg 7zip github-cli spotify-launcher evolution
 
 
 # -------- AUR --------
@@ -56,20 +56,23 @@ gsettings set org.gnome.desktop.interface font-name 'Noto Sans Thai 11'
 mkdir -p ~/.local/share/fonts
 fc-cache -fv
 
-# -------- SHELL --------
+# -------- ZSH SHELL --------
 CURRENT_SHELL=$(getent passwd papop | cut -d: -f7)
 if [[ "$CURRENT_SHELL" != "/bin/zsh" ]]; then
     chsh  -s /bin/zsh "$REAL_USER"
 fi
 
-
-
-
-
 # -------- GNU STOW --------
 SCRIPT_DIR="$(dirname "$(readlink -f "$0")")"
 cd "$SCRIPT_DIR"
 sudo -u "$REAL_USER" stow . --adopt
+
+
+
+# -------- POST STOW SETUP --------
+cp ~/.themes/fonts/* ~/.local/share/fonts
+
+
 
 echo "--------------------------------------------------"
 echo " ✅ Setup Complete! All tasks finished."

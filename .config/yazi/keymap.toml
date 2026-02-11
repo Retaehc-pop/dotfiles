@@ -2,3 +2,8 @@
 on = ["h"]
 run = "hidden toggle"
 desc = "Toggle the visibility of hidden files"
+
+[[mgr.append_keymap]]
+on   = [ "g", "u" ]
+run = "cd /run/media/papop"
+desc = "Go to USB drives"

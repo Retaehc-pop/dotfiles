@@ -15,7 +15,8 @@
         "pinnedApps": [
             "chromium",
             "kitty",
-            "spotify-launcher"
+            "spotify-launcher",
+            "steam"
         ],
         "position": "center",
         "screenshotAnnotationTool": "",
@@ -89,10 +90,13 @@
                     "clockColor": "none",
                     "customFont": "",
                     "formatHorizontal": "HH:mm ddd, MMM dd",
-                    "formatVertical": "HH mm - dd MM",
+                    "formatVertical": "HH mm | dd MM",
                     "id": "Clock",
                     "tooltipFormat": "HH:mm ddd, MMM dd",
                     "useCustomFont": false
+                },
+                {
+                    "id": "plugin:weekly-calendar"
                 },
                 {
                     "colorizeIcons": false,
@@ -147,19 +151,14 @@
                 {
                     "displayMode": "onhover",
                     "iconColor": "none",
-                    "id": "Network",
-                    "textColor": "none"
-                },
-                {
-                    "displayMode": "onhover",
-                    "iconColor": "none",
-                    "id": "Bluetooth",
+                    "id": "Volume",
+                    "middleClickCommand": "pwvucontrol || pavucontrol",
                     "textColor": "none"
                 },
                 {
                     "deviceNativePath": "__default__",
-                    "displayMode": "icon-hover",
-                    "hideIfIdle": false,
+                    "displayMode": "graphic-clean",
+                    "hideIfIdle": true,
                     "hideIfNotDetected": true,
                     "id": "Battery",
                     "showNoctaliaPerformance": false,
@@ -204,9 +203,9 @@
         "manualSunrise": "06:30",
         "manualSunset": "18:30",
         "monitorForColors": "",
-        "predefinedScheme": "Tokyo Night",
+        "predefinedScheme": "Nord",
         "schedulingMode": "off",
-        "useWallpaperColors": true
+        "useWallpaperColors": false
     },
     "controlCenter": {
         "cards": [
@@ -257,7 +256,7 @@
                     "id": "Notifications"
                 },
                 {
-                    "id": "PowerProfile"
+                    "id": "DarkMode"
                 },
                 {
                     "id": "KeepAwake"
@@ -270,7 +269,7 @@
     },
     "desktopWidgets": {
         "enabled": true,
-        "gridSnap": false,
+        "gridSnap": true,
         "monitorWidgets": [
             {
                 "name": "eDP-1",
@@ -282,18 +281,18 @@
                         "format": "HH : mm : ss",
                         "id": "Clock",
                         "roundedCorners": true,
-                        "scale": 1.9626411770856547,
+                        "scale": 2.082006016303515,
                         "showBackground": false,
                         "useCustomFont": true,
-                        "x": 680,
-                        "y": 120
+                        "x": 620,
+                        "y": 140
                     },
                     {
                         "id": "Weather",
-                        "scale": 0.6510501691800762,
+                        "scale": 1.197879413297673,
                         "showBackground": false,
-                        "x": 1420,
-                        "y": 920
+                        "x": 1280,
+                        "y": 880
                     }
                 ]
             }
@@ -367,7 +366,7 @@
         "name": "Braunschweig, DE",
         "showCalendarEvents": true,
         "showCalendarWeather": true,
-        "showWeekNumberInCalendar": false,
+        "showWeekNumberInCalendar": true,
         "use12hourFormat": false,
         "useFahrenheit": false,
         "weatherEnabled": true,
