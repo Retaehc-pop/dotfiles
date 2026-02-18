@@ -13,7 +13,7 @@ set -Eeuo pipefail
 
 # ------- DEPENDENCIES ------------
 echo "[LOG] Installing package"
-pacman -S --needed --noconfirm neovim bluez bluez-utils networkmanager stow git base-devel nano zsh chromium sddm python cmake yazi zathura cava btop quickshell go python zoxide man less fzf fastfetch btop htop wl-clipboard cliphist clang unzip zip luarocks qt6-wayland tree-sitter-cli pyright yarn npm imagemagick brightnessctl ripgrep fd udiskie wlsunset resvg 7zip github-cli spotify-launcher evolution
+pacman -S --needed --noconfirm neovim bluez bluez-utils networkmanager stow git base-devel nano zsh chromium sddm python cmake yazi zathura cava btop quickshell go python zoxide man less fzf fastfetch btop htop wl-clipboard cliphist clang unzip zip luarocks qt6-wayland tree-sitter-cli pyright yarn npm imagemagick brightnessctl ripgrep fd udiskie wlsunset resvg 7zip github-cli spotify-launcher evolution mpv
 
 
 # -------- AUR --------
@@ -31,7 +31,7 @@ if ! command -v paru &> /dev/null; then
 fi
 
 # -------- AUR PKG --------
-sudo -u "$REAL_USER" paru -S --noconfirm --needed --skipreview oh-my-posh
+sudo -u "$REAL_USER" paru -S --noconfirm --needed --skipreview oh-my-posh spicetify
 
 
 # ------- SERVICE ENABLE ----------

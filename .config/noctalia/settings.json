@@ -16,7 +16,8 @@
             "chromium",
             "kitty",
             "spotify-launcher",
-            "steam"
+            "steam",
+            "discord-canary"
         ],
         "position": "center",
         "screenshotAnnotationTool": "",
@@ -53,11 +54,23 @@
         "marginHorizontal": 4,
         "marginVertical": 4,
         "monitors": [
-            "eDP-1"
+            "eDP-1",
+            "DP-4"
         ],
         "outerCorners": true,
-        "position": "left",
+        "position": "right",
         "screenOverrides": [
+            {
+                "enabled": false,
+                "name": "eDP-1",
+                "position": "right"
+            },
+            {
+                "density": "spacious",
+                "enabled": true,
+                "name": "DP-4",
+                "position": "left"
+            }
         ],
         "showCapsule": true,
         "showOutline": false,
@@ -68,7 +81,7 @@
                     "characterCount": 2,
                     "colorizeIcons": false,
                     "emptyColor": "secondary",
-                    "enableScrollWheel": true,
+                    "enableScrollWheel": false,
                     "focusedColor": "primary",
                     "followFocusedScreen": false,
                     "groupedBorderOpacity": 0.5,
@@ -285,14 +298,65 @@
                         "showBackground": false,
                         "useCustomFont": true,
                         "x": 620,
-                        "y": 140
+                        "y": 120
                     },
                     {
                         "id": "Weather",
-                        "scale": 1.197879413297673,
+                        "scale": 0.8631822035360404,
                         "showBackground": false,
-                        "x": 1280,
-                        "y": 880
+                        "x": 1360,
+                        "y": 860
+                    }
+                ]
+            },
+            {
+                "name": "DP-4",
+                "widgets": [
+                    {
+                        "clockColor": "primary",
+                        "clockStyle": "minimal",
+                        "customFont": "Ykar",
+                        "format": "HH : mm : ss",
+                        "id": "Clock",
+                        "roundedCorners": true,
+                        "scale": 3.6021529547664946,
+                        "showBackground": false,
+                        "useCustomFont": true,
+                        "x": 660,
+                        "y": 60
+                    },
+                    {
+                        "clockColor": "primary",
+                        "clockStyle": "minimal",
+                        "customFont": "Anurati Pro",
+                        "format": "d MMM yyyy",
+                        "id": "Clock",
+                        "roundedCorners": true,
+                        "scale": 1,
+                        "showBackground": false,
+                        "useCustomFont": true,
+                        "x": 880,
+                        "y": 220
+                    },
+                    {
+                        "id": "Weather",
+                        "scale": 1,
+                        "showBackground": false,
+                        "x": 1640,
+                        "y": 980
+                    },
+                    {
+                        "hideMode": "hidden",
+                        "id": "MediaPlayer",
+                        "roundedCorners": false,
+                        "scale": 1,
+                        "showAlbumArt": true,
+                        "showBackground": false,
+                        "showButtons": false,
+                        "showVisualizer": true,
+                        "visualizerType": "linear",
+                        "x": 60,
+                        "y": 980
                     }
                 ]
             }
@@ -558,7 +622,7 @@
                 "id": "spicetify"
             }
         ],
-        "enableUserTheming": true
+        "enableUserTheming": false
     },
     "ui": {
         "bluetoothDetailsViewMode": "grid",
@@ -588,7 +652,7 @@
         "overviewEnabled": false,
         "panelPosition": "follow_bar",
         "randomIntervalSec": 300,
-        "setWallpaperOnAllMonitors": true,
+        "setWallpaperOnAllMonitors": false,
         "showHiddenFiles": false,
         "solidColor": "#1a1a2e",
         "sortOrder": "name",
@@ -597,7 +661,7 @@
         "transitionType": "fade",
         "useSolidColor": false,
         "useWallhaven": false,
-        "viewMode": "recursive",
+        "viewMode": "browse",
         "wallhavenApiKey": "",
         "wallhavenCategories": "111",
         "wallhavenOrder": "desc",

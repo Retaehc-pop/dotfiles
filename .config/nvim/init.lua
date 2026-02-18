@@ -229,9 +229,12 @@ vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper win
 vim.keymap.set('n', '<A-Up>', ':m .-2<CR>==', { desc = 'Move line up' })
 vim.keymap.set('n', '<A-Down>', ':m .+1<CR>==', { desc = 'Move line down' })
 
--- NOTE: indenting the selected portion
 vim.keymap.set('v', '<A-Up>', ":m '<-2<CR>gv=gv", { desc = 'Move selection up' })
 vim.keymap.set('v', '<A-Down>', ":m '>+1<CR>gv=gv", { desc = 'Move selection down' })
+
+-- NOTE: indenting the selected portion
+vim.keymap.set('v', '<Tab>', '>gv', { desc = 'Indent selection' })
+vim.keymap.set('v', '<S-Tab>', '<gv', { desc = 'Unindent selection' })
 
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
@@ -967,7 +970,7 @@ require('lazy').setup({
 })
 
 -- Setup Noctalia Theme
-require('matugen').setup()
+-- require('matugen').setup()
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
