@@ -10,6 +10,16 @@ export FONT=ttf-hack-nerd
 export PATH="/usr/local/bin:/usr/bin:$PATH"
 export LD_LIBRARY_PATH=/usr/local/lib
 export QT_QPA_PLATFORMTHEME=qt6ct # Noctalia app icon
+
+
+
+
+export PREFIX="$HOME/opt/cross"
+export TARGET=i686-elf
+export PATH="$PREFIX/bin:$PATH"
+
+
+
 # -------- SET ALIAS --------
 alias cd="z" # or eval "${zoxide init --cmd cd zsh}"
 alias ls="ls --color"
