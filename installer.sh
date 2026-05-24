@@ -109,7 +109,9 @@ sudo pacman -S --needed --noconfirm \
 ok "font packages installed"
 
 gsettings set org.gnome.desktop.interface font-name 'Noto Sans Thai 11'
-ok "default interface font set"
+gsettings set org.gnome.desktop.interface document-font-name 'Noto Sans Thai 11'
+gsettings set org.gnome.desktop.interface monospace-font-name 'Hack Nerd Font Mono 11'
+ok "GTK fonts set (interface + document → Noto Sans Thai, monospace → Hack Nerd Font Mono)"
 
 mkdir -p "$USER_HOME/.local/share/fonts"
 fc-cache -fv >/dev/null 2>&1
