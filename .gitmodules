@@ -1,0 +1,3 @@
+[submodule "pop-skills"]
+	path = pop-skills
+	url = git@github.com:Retaehc-pop/pop-skills.git

@@ -26,8 +26,8 @@ info() { echo "    ..  $1"; }
 
 TOTAL_STAGES=10
 
-# -------- [1] MULTILIB --------
-stage 1 "Enabling multilib repository"
+# -------- [1] PREREQUISITES --------
+stage 1 "Prerequisites: multilib + GRUB"
 if ! grep -q "^\[multilib\]" /etc/pacman.conf; then
     info "Uncommenting multilib in /etc/pacman.conf"
     sudo sed -i 's/^#\[multilib\]/[multilib]/' /etc/pacman.conf
@@ -36,6 +36,15 @@ if ! grep -q "^\[multilib\]" /etc/pacman.conf; then
     ok "multilib enabled and repos synced"
 else
     ok "multilib already enabled"
+fi
+
+if grep -q "^GRUB_TIMEOUT=0" /etc/default/grub && grep -q "^GRUB_TIMEOUT_STYLE=hidden" /etc/default/grub; then
+    ok "GRUB already set to boot immediately"
+else
+    sudo sed -i 's/^GRUB_TIMEOUT=.*/GRUB_TIMEOUT=0/' /etc/default/grub
+    sudo sed -i 's/^GRUB_TIMEOUT_STYLE=.*/GRUB_TIMEOUT_STYLE=hidden/' /etc/default/grub
+    sudo grub-mkconfig -o /boot/grub/grub.cfg
+    ok "GRUB configured to skip boot menu"
 fi
 
 # -------- [2] PACKAGES --------
@@ -119,8 +128,12 @@ fi
 # -------- [9] DOTFILES --------
 stage 9 "Symlinking dotfiles with stow"
 cd "$SCRIPT_DIR"
+git submodule update --init --recursive
+ok "submodules initialised"
 stow . --adopt
 ok "dotfiles linked"
+bash "$SCRIPT_DIR/pop-skills/install_skill.sh"
+ok "pop-skills plugin installed"
 
 if [ -d "$USER_HOME/.themes/fonts" ]; then
     cp "$USER_HOME/.themes/fonts/"* "$USER_HOME/.local/share/fonts/"
