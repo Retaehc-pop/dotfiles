@@ -57,7 +57,7 @@ mkdir -p ~/.local/share/fonts
 fc-cache -fv
 
 # -------- ZSH SHELL --------
-CURRENT_SHELL=$(getent passwd papop | cut -d: -f7)
+CURRENT_SHELL=$(getent passwd pop | cut -d: -f7)
 if [[ "$CURRENT_SHELL" != "/bin/zsh" ]]; then
     chsh  -s /bin/zsh "$REAL_USER"
 fi

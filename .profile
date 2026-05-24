@@ -28,4 +28,5 @@ alias vim="nvim"
 alias c="clear"
 alias y="yazi"
 alias ff="fastfetch"
+alias open="xdg-open"
 

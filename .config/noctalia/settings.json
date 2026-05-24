@@ -32,7 +32,7 @@
         "showCategories": true,
         "showIconBackground": false,
         "sortByMostUsed": true,
-        "terminalCommand": "alacritty -e",
+        "terminalCommand": "kitty -e",
         "viewMode": "grid"
     },
     "audio": {
@@ -70,7 +70,8 @@
         "monitors": [
             "eDP-1",
             "DP-4",
-            "DP-3"
+            "DP-3",
+            "DP-5"
         ],
         "mouseWheelAction": "none",
         "mouseWheelWrap": true,
@@ -90,7 +91,7 @@
                 "density": "spacious",
                 "enabled": true,
                 "name": "DP-4",
-                "position": "right"
+                "position": "left"
             },
             {
                 "enabled": true,
@@ -207,11 +208,40 @@
                 {
                     "colorizeDistroLogo": false,
                     "colorizeSystemIcon": "none",
+                    "colorizeSystemText": "none",
                     "customIconPath": "",
                     "enableColorization": false,
                     "icon": "adjustments-horizontal",
                     "id": "ControlCenter",
                     "useDistroLogo": false
+                },
+                {
+                    "defaultSettings": {
+                        "completedCount": 0,
+                        "count": 0,
+                        "current_page_id": 0,
+                        "exportEmptySections": false,
+                        "exportFormat": "markdown",
+                        "exportPath": "~/Documents",
+                        "isExpanded": false,
+                        "pages": [
+                            {
+                                "id": 0,
+                                "name": "General"
+                            }
+                        ],
+                        "priorityColors": {
+                            "high": "#f44336",
+                            "low": "#9e9e9e",
+                            "medium": "#2196f3"
+                        },
+                        "showBackground": true,
+                        "showCompleted": true,
+                        "todos": [
+                        ],
+                        "useCustomColors": false
+                    },
+                    "id": "plugin:todo"
                 }
             ]
         }
@@ -601,7 +631,8 @@
         ],
         "location": "bottom",
         "monitors": [
-            "DP-4"
+            "DP-4",
+            "DP-5"
         ],
         "overlayLayer": true
     },
@@ -646,7 +677,7 @@
             },
             {
                 "action": "logout",
-                "command": "",
+                "command": "loginctl logout",
                 "countdownEnabled": true,
                 "enabled": true,
                 "keybind": "5"
@@ -757,7 +788,7 @@
     },
     "wallpaper": {
         "automationEnabled": false,
-        "directory": "/home/papop/.themes/wallpaper",
+        "directory": "/home/papop/Pictures/Wallpapers",
         "enableMultiMonitorDirectories": true,
         "enabled": true,
         "favorites": [

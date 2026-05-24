@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:wiki.hypr.land)",
+      "WebFetch(domain:github.com)",
+      "WebSearch",
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "Bash(curl -s \"https://raw.githubusercontent.com/hyprwm/Hyprland/main/example/hyprland.lua\")",
+      "Bash(curl -s \"https://wiki.hypr.land/Configuring/Basics/Dispatchers/\")"
+    ]
+  }
+}
