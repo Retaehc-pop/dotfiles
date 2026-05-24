@@ -1,0 +1,15 @@
+# Sensitive
+.credentials.json
+
+# Ephemeral runtime data
+backups/
+cache/
+file-history/
+history.jsonl
+.last-cleanup
+mcp-needs-auth-cache.json
+session-env/
+sessions/
+shell-snapshots/
+projects/
+plugins/

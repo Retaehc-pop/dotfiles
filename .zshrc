@@ -51,13 +51,14 @@ setopt hist_save_no_dups
 setopt hist_ignore_dups
 setopt hist_find_no_dups
 
-bindkey "^[[A" history-search-backward
-bindkey "^[[B" history-search-forward
-
 # -------- KEYBOARD SETTING --------
 bindkey -v
 bindkey "^[[H" beginning-of-line
 bindkey "^[[F" end-of-line
+bindkey "^[[1;5C" forward-word   # Ctrl+Right
+bindkey "^[[1;5D" backward-word  # Ctrl+Left
+bindkey "^[[A" history-beginning-search-backward
+bindkey "^[[B" history-beginning-search-forward
 
 #-------- LOAD PROFILE --------
 source $HOME/.profile
