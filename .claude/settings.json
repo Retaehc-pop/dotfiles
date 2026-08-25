@@ -1,7 +1,14 @@
 {
+  "model": "sonnet",
   "statusLine": {
     "type": "command",
     "command": "bash ~/.claude/statusline-command.sh"
+  },
+  "enabledPlugins": {
+    "andrej-karpathy-skills@karpathy-skills": true,
+    "pop-skills": true,
+    "pyright-lsp@claude-plugins-official": true,
+    "ponytail@ponytail": true
   },
   "extraKnownMarketplaces": {
     "karpathy-skills": {
@@ -9,11 +16,13 @@
         "source": "github",
         "repo": "forrestchang/andrej-karpathy-skills"
       }
+    },
+    "ponytail": {
+      "source": {
+        "source": "github",
+        "repo": "DietrichGebert/ponytail"
+      }
     }
   },
-  "theme": "dark-ansi",
-  "enabledPlugins": {
-    "andrej-karpathy-skills@karpathy-skills": true,
-    "pop-skills": true
-  }
+  "theme": "dark-ansi"
 }
