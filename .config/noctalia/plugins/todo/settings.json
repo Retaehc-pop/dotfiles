@@ -1,19 +1,10 @@
 {
   "todos": [
     {
-      "id": 1779462518194,
-      "text": "(150$) Badminton Bag",
+      "id": 1779726195666,
+      "text": "(1645) PC",
       "completed": false,
-      "createdAt": "2026-05-22T15:08:38.194Z",
-      "pageId": 0,
-      "priority": "medium",
-      "details": ""
-    },
-    {
-      "id": 1779462381363,
-      "text": "(180$) Salomon XT6",
-      "completed": false,
-      "createdAt": "2026-05-22T15:06:21.363Z",
+      "createdAt": "2026-05-25T16:23:15.666Z",
       "pageId": 0,
       "priority": "medium",
       "details": ""
@@ -53,24 +44,6 @@
       "pageId": 0,
       "priority": "medium",
       "details": ""
-    },
-    {
-      "id": 1779462354333,
-      "text": "(2000$) New PC",
-      "completed": false,
-      "createdAt": "2026-05-22T15:05:54.333Z",
-      "pageId": 0,
-      "priority": "medium",
-      "details": ""
-    },
-    {
-      "id": 1779462319796,
-      "text": "(400 $) Pi Cluster",
-      "completed": false,
-      "createdAt": "2026-05-22T15:05:19.796Z",
-      "pageId": 0,
-      "priority": "medium",
-      "details": ""
     }
   ],
   "pages": [
@@ -80,7 +53,7 @@
     }
   ],
   "current_page_id": 0,
-  "count": 8,
+  "count": 5,
   "completedCount": 0,
   "showCompleted": true,
   "showBackground": true,

@@ -11,6 +11,7 @@ export PATH="/usr/local/bin:/usr/bin:$PATH"
 export LD_LIBRARY_PATH=/usr/local/lib
 export QT_QPA_PLATFORMTHEME=qt6ct # Noctalia app icon
 
+export PATH="$HOME/opt/cross/bin:$PATH"
 
 
 
@@ -29,4 +30,5 @@ alias c="clear"
 alias y="yazi"
 alias ff="fastfetch"
 alias open="xdg-open"
+[ "$TERM" = "xterm-kitty" ] && alias ssh="kitty +kitten ssh"
 

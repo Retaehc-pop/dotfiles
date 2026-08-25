@@ -2,8 +2,6 @@
 # Optimized for smooth and responsive visualization
 
 [general]
-# Number of bars (20-200) - fewer bars = better performance
-bars = 64
 # Framerate (1-144) - higher = smoother but more CPU intensive
 framerate = 60
 
@@ -20,18 +18,17 @@ method = ncurses
 style = stereo
 
 [color]
-theme = "noctalia"
 # Color gradient for bars using template variables
 gradient = 1
 gradient_count = 8
-gradient_color_1 = '#c8e3ff'
-gradient_color_2 = '#d3dfff'
-gradient_color_3 = '#d0daff'
-gradient_color_4 = '#b7c5ff'
-gradient_color_5 = '#b0b8ff'
-gradient_color_6 = '#c7c8ff'
-gradient_color_7 = '#bfb8ff'
-gradient_color_8 = '#c9b5ed'
+gradient_color_1 = '#A3BE8C'
+gradient_color_2 = '#8FBCBB'
+gradient_color_3 = '#88C0D0'
+gradient_color_4 = '#81A1C1'
+gradient_color_5 = '#5E81AC'
+gradient_color_6 = '#5E81AC'
+gradient_color_7 = '#B48EAD'
+gradient_color_8 = '#BF616A'
 
 [smoothing]
 # Noise reduction (0-100) - higher = smoother but less responsive

@@ -88,3 +88,5 @@ function y() {
 	fi
 	rm -f -- "$tmp"
 }
+
+alias rpi-imager='sudo QT_QPA_PLATFORM=wayland WAYLAND_DISPLAY=wayland-1 XDG_RUNTIME_DIR=/run/user/1000 rpi-imager'

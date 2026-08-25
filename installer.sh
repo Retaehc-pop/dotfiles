@@ -54,7 +54,7 @@ sudo pacman -S --needed --noconfirm \
     python cmake yazi zathura btop go zoxide man less fzf fastfetch jq \
     htop wl-clipboard cliphist clang unzip zip luarocks qt6-wayland tree-sitter-cli \
     pyright yarn npm brightnessctl ripgrep fd udiskie wlsunset resvg \
-    7zip github-cli spotify-launcher evolution mpv steam
+    7zip github-cli spotify-launcher mpv steam
 ok "all packages installed"
 
 # -------- [3] AUR HELPER --------
