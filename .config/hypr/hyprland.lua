@@ -1,61 +1,76 @@
--- -------- HYPRLAND --------
-require("conf/monitor")
-require("conf/application")
-require("conf/startup")
-require("conf/env")
-require("conf/appearance")
-require("conf/workspace")
-require("conf/input")
-require("conf/layout")
-require("conf/keybind")
-require("conf/windowrule")
+local home   = os.getenv("HOME")
+local hypr   = home .. "/.config/hypr"
+package.path = package.path .. ";" .. home .. "/.config/caelestia/?.lua"
 
--- PERMISSIONS
--- See https://wiki.hypr.land/Configuring/Advanced-and-Cool/Permissions/
--- hl.config({
---   ecosystem = {
---     enforce_permissions = true,
---   },
--- })
--- hl.permission("/usr/(bin|local/bin)/grim", "screencopy", "allow")
--- hl.permission("/usr/(lib|libexec|lib64)/xdg-desktop-portal-hyprland", "screencopy", "allow")
--- hl.permission("/usr/(bin|local/bin)/hyprpm", "plugin", "allow")
+-- Create a file if it doesn't exist, optionally with initial content
+local function maybe_create(file, content)
+    local f = io.open(file)
 
-hl.config({
-	misc = {
-		force_default_wallpaper = -1,
-		disable_hyprland_logo = false,
-	},
+    if f then
+        f:close()
+        return
+    end
+
+    f = io.open(file, "w")
+    if f then
+        if content then f:write(content) end
+        f:close()
+    end
+end
+
+-- Copy src to dst, but only if dst doesn't already exist
+local function maybe_copy(src, dst)
+    local out = io.open(dst)
+    if out then
+        out:close()
+        return
+    end
+
+    local input = io.open(src, "r")
+    if not input then return end
+
+    out = io.open(dst, "w")
+    if out then
+        out:write(input:read("*a"))
+        out:close()
+    end
+    input:close()
+end
+
+-- Maybe set current colours to defaults
+maybe_copy(hypr .. "/scheme/default.lua", hypr .. "/scheme/current.lua")
+
+-- User variables
+maybe_create(home .. "/.config/caelestia/hypr-vars.lua", "return {}\n")
+local overrides = require("hypr-vars")
+if type(overrides) == "table" then
+    local vars = require("variables")
+    for k, v in pairs(overrides) do
+        vars[k] = v
+    end
+end
+
+-- Default monitor conf
+hl.monitor({
+    output   = "",
+    mode     = "preferred",
+    position = "auto",
+    scale    = 1,
 })
 
-hl.on("hyprland.start", function()
-	hl.exec_cmd("noctalia")
-end)
+-- Configs
+require("hyprland.env")
+require("hyprland.general")
+require("hyprland.input")
+require("hyprland.misc")
+require("hyprland.animations")
+require("hyprland.decoration")
+require("hyprland.group")
+require("hyprland.execs")
+require("hyprland.rules")
+require("hyprland.gestures")
+require("hyprland.keybinds")
 
-require("noctalia/noctalia-colors")
-
--- For Noctalia Color templates
-require("noctalia")
-
-local mainMod = "SUPER"
-local ipc = "noctalia msg "
-
--- Core binds
-hl.bind(mainMod .. "+Space", hl.dsp.exec_cmd(ipc .. "panel-toggle launcher"))
-hl.bind(mainMod .. "+S", hl.dsp.exec_cmd(ipc .. "panel-toggle control-center"))
-hl.bind(mainMod .. "+comma", hl.dsp.exec_cmd(ipc .. "settings-toggle"))
-hl.bind("ALT + Tab", hl.dsp.exec_cmd(ipc .. "window-switcher"))
-
--- Media keys
-hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd(ipc .. "volume-up"))
-hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd(ipc .. "volume-down"))
-hl.bind("XF86AudioMute", hl.dsp.exec_cmd(ipc .. "volume-mute"))
-hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd(ipc .. "brightness-up"))
-hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd(ipc .. "brightness-down"))
-
--- Noctalia Settings
-hl.window_rule({
-	match = { class = "dev.noctalia.Noctalia" },
-	float = true,
-	size = { 1080, 920 },
-})
+-- User configs
+maybe_create(home .. "/.config/caelestia/hypr-user.lua")
+require("hypr-user")
