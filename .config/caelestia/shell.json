@@ -1,0 +1,35 @@
+{
+    "bar": {
+        "entries": [
+            { "id": "logo", "enabled": true },
+            { "id": "clock", "enabled": true },
+            { "id": "spacer", "enabled": true },
+            { "id": "workspaces", "enabled": true },
+            { "id": "spacer", "enabled": true },
+            { "id": "tray", "enabled": true },
+            { "id": "statusIcons", "enabled": true },
+            { "id": "power", "enabled": true }
+        ]
+    },
+    "general": {
+        "idle": {
+            "lockBeforeSleep": false,
+            "timeouts": [
+            ]
+        }
+    },
+    "launcher": {
+        "hiddenApps": [
+            "bssh",
+            "bvnc",
+            "avahi-discover",
+            "thunar-bulk-rename",
+            "cmake-gui"
+        ]
+    },
+    "services": {
+        "useFahrenheit": false,
+        "useFahrenheitPerformance": false,
+        "useTwelveHourClock": false
+    }
+}
