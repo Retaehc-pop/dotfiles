@@ -77,8 +77,8 @@ return {
     kbPrevWsGroup              = "CTRL + SUPER + mouse_up",
 
     -- Window Group
-    kbWindowCycleNext          = "ALT + TAB",
-    kbWindowCyclePrev          = "SHIFT + ALT + TAB",
+    kbWindowCycleNext          = "SUPER + TAB",
+    kbWindowCyclePrev          = "SUPER + SHIFT + TAB",
     kbWindowGroupCycleNext     = "CTRL + ALT + TAB",
     kbWindowGroupCyclePrev     = "CTRL + SHIFT + ALT + TAB",
     kbUngroup                  = "SUPER + U",

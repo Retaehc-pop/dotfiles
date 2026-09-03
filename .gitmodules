@@ -1,3 +1,6 @@
 [submodule "pop-skills"]
 	path = pop-skills
 	url = git@github.com:Retaehc-pop/pop-skills.git
+[submodule ".config/tmux/plugins/tmux-continuum"]
+	path = .config/tmux/plugins/tmux-continuum
+	url = git@github.com:tmux-plugins/tmux-continuum.git

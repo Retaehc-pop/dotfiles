@@ -1,0 +1,4 @@
+[sftp.sol]
+host = "sol"
+user = "papop"
+port = 22

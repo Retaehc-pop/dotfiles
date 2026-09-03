@@ -8,7 +8,9 @@
     "andrej-karpathy-skills@karpathy-skills": true,
     "pop-skills": true,
     "pyright-lsp@claude-plugins-official": true,
-    "ponytail@ponytail": true
+    "ponytail@ponytail": true,
+    "vercel@claude-plugins-official": true,
+    "clangd-lsp@claude-plugins-official": true
   },
   "extraKnownMarketplaces": {
     "karpathy-skills": {

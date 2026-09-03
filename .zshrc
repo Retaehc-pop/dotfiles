@@ -90,3 +90,8 @@ function y() {
 }
 
 alias rpi-imager='sudo QT_QPA_PLATFORM=wayland WAYLAND_DISPLAY=wayland-1 XDG_RUNTIME_DIR=/run/user/1000 rpi-imager'
+
+# auto-start tmux, attaching to an existing session if one's alive
+if [ -z "$TMUX" ] && [ -n "$PS1" ]; then
+	tmux attach -t default 2>/dev/null || tmux new -s default
+fi
